@@ -1,0 +1,133 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Muli&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Quicksand&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
+body {
+background-color:#fff9f7;
+}
+.nav-menu .navbar{
+height: 100%;
+}
+.container-fluid{
+padding:0px;
+h
+}
+#add_post {
+  transition: all ease-in-out 0.5s;
+  transition: all 0.5s;
+  padding: 0;
+  background: #040b14;
+  border-top: 1px solid #ff5821;
+  border-bottom:1px solid #ff5821;
+}
+
+#add_post .profile img {
+  margin: 15px auto;
+  display: block;
+  width: 120px;
+  border: 8px solid #2c2f3f;
+}
+
+#add_post .profile h1 {
+  font-size: 24px;
+  margin: 0;
+  padding: 0;
+  font-weight: 600;
+  -moz-text-align-last: center;
+  text-align-last: center;
+  font-family: "Poppins", sans-serif;
+}
+
+#add_post .add_post h1 a, #header .profile h1 a:hover {
+  color: #ff5821;
+  font-size:30px;
+  text-decoration: none;
+}
+
+
+.nav-menu {
+  padding: 30px 0 0 0;
+  height:100%;
+}
+
+.nav-menu * {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  color: #ff5821;
+  font-size: 16px;
+  font-family: 'Anton', sans-serif;
+  letter-spacing: 1.5px;
+
+
+}
+
+.nav-menu > ul > li {
+  position: relative;
+  white-space: nowrap;
+}
+
+.nav-menu a {
+  display: flex;
+  align-items: center;
+  color: #a8a9b4;
+  padding: 12px 15px;
+  margin-bottom: 8px;
+  transition: 0.3s;
+  font-size: 15px;
+}
+
+.nav-menu a i {
+  font-size: 24px;
+  padding-right: 8px;
+  color: #6f7180;
+}
+
+
+.add_post_form {
+padding:0px;
+padding-top: 3%;
+padding-bottom: 5%;
+}
+.add_post_form p {
+font-family: 'Anton', sans-serif;
+letter-spacing: 1.5px;
+color:#040b14;
+
+}
+
+.add_post_form h2 {
+    font-family: 'Anton', sans-serif;
+    color: #ff5821;
+    letter-spacing: 1.5px;
+    padding-bottom: 2%;
+
+}
+
+.form-control {
+ width:50%;
+ margin-left: 25%;
+ margin-top: 2%;
+ border: 2px solid  #040b14;
+}
+.form-control:hover {
+ border: 2px solid  #ff5821;
+}
+
+.form_btn  {
+    background-color: #ff5821;
+    color: white;
+    }
+
+.form_btn:hover {
+color:white;
+background-color: #040b14;
+}
+
+.django-ckeditor-widget {
+ border: 2px solid  #040b14;
+}
+
+.django-ckeditor-widget:hover {
+ border: 1px solid  #ff5821;
+}

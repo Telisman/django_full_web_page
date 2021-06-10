@@ -1,0 +1,437 @@
+{% extends "nav_footer.html" %}
+{% load staticfiles %}
+{% block content %}
+<link rel="stylesheet" type="text/css" href="{% static 'post_user/home.css' %}">
+
+
+<!-- USER authenticated-->
+{% if user.is_authenticated %}
+
+<!--User KORISNIK profile-->
+{% if user.user_type  == user.KORISNIK %}
+<div class="container-fluid" >
+    <div class="row" style="margin-left: 0px; margin-right: 0px;">
+        <div class="col-2" id="profile">
+            <div class="d-flex flex-column">
+                <div class="profile">
+
+			{% if user.profile_image %}
+                    <img alt="example image" src="{{ user.profile_image.url }}" class="img-fluid rounded-circle">
+			{% endif %}
+                    <h1 class="text-light"><a href="">{{ user.username }}</a></h1>
+                </div>
+                <nav id="navbar" class="nav-menu navbar menu">
+                    <ul class="menu-bar">
+                        <li class="nav-item"><a href="/" ><span>Moj profil</span></a></li>
+                        <li class="nav-item"><a href="/AddPost/0/" ><span>Dodaj post</span></a></li>
+                        <li class="nav-item"><a href="/Majstori/"> <span>Pogledaj sve majstore</span></a></li>
+                        <li class="nav-item"><a href="/MyPosts/" > <span>Moji postovi</span></a></li>
+                        {% load inbox %}
+                        <li class="nav-item"><a href="https://majstor.cloud-petkovic.com/messages/inbox/" > <span>Poruke: </span>  {% inbox_count %}</a></li>
+                        <li class="nav-item"><a href="/members/edit_profile/" > <span>Izmeni profil </span></a></li>
+                    </ul>
+                </nav><!-- .nav-menu -->
+            </div>
+        </div><!-- End Header -->
+
+    <div class="col-10">
+        <div class="container">
+            <div class="section-title">
+                <h2>Moj profil:</h2>
+                <p>{{ user.bio }}</p>
+            </div>
+
+            <div class="row info">
+                <div class="col-lg-4 aos-init aos-animate" data-aos="fade-right">
+				{% if user.profile_image %}
+                    <img alt="example image" src="{{ user.profile_image.url }}" class="img-fluid">
+					{% endif %}	
+                </div>
+
+                <div class="col-lg-8 pt-4 pt-lg-0 content aos-init aos-animate" data-aos="fade-left">
+                    <div class="row info">
+                        <div class="col-lg-6">
+                            <ul class="row-class">
+                                <li><strong>Datum rodjenja:</strong> <span>1 May 1995</span></li>
+                                <li> <strong>Email adresa:</strong> <span>{{ user.email }}</span></li>
+                                <li> <strong>Broj telefona:</strong> <span>{{ user.phone_number }}</span></li>
+                                <li> <strong>Grad:</strong> <span>New York, USA</span></li>
+                            </ul>
+                        </div>
+                        <div class="col-lg-6">
+                            <ul class="row-class">
+                                <li> <strong>Ime:</strong> <span>{{ user.first_name }}</span></li>
+                                <li> <strong>Prezime:</strong> <span>{{ user.last_name }}</span></li>
+                                <li> <strong>Registracija:</strong> <span>{{ user.date_joined.date }}</span></li>
+                                <li> <strong>Tip korisnika:</strong> <span>{{user.user_type}}</span></li>
+                            </ul>
+                         </div>
+                    </div>
+          </div>
+
+
+            </div>
+            <div class="container text-center">
+            <div class="col-12 text-center add-post ">
+                 <div class="row" id="add_post">
+                     <h3 class="text-center text_add add_text"><strong> Dodajte novi post:</strong></h3>
+                     <div class="style_prevu_kit img_add1" ><a href="/AddPost/10/" class="post_add_a">Stolarski radovi
+                     <ul>
+                         <li> Popravka:</li>
+                         <li> Parketa</li>
+                         <li> Ormana </li>
+                         <li> Kreveta </li>
+                         <li> Polica </li>
+                     </ul>
+
+                     </a></div>
+                     <div class="style_prevu_kit img_add2" ><a href="/AddPost/9/" class="post_add_a" >Vodoinstalater:
+                     <ul>
+                         <li> Popravka:</li>
+                         <li> Bojlera</li>
+                         <li> WC solja </li>
+                         <li> Kada </li>
+                         <li> Tuskabina </li>
+                     </ul>
+
+                     </a>
+                     </div>
+                     <div class="style_prevu_kit img_add3" ><a href="/AddPost/8/" class="post_add_a">Spremanje/odrzavanje
+                         <ul>
+                            <li> Ciscenje:</li>
+                            <li> Stanova</li>
+                            <li> Garaza </li>
+                             <li> Magacina </li>
+                             <li> Poslovnih objekata </li>
+                        </ul>
+                     </a>
+                     </div>
+
+                     <div class="style_prevu_kit img_add4" ><a href="/AddPost/7/" class="post_add_a">Montazni radovi
+                     <ul>
+                         <li> Popravka:</li>
+                         <li> Fasada</li>
+                         <li> Krovova </li>
+                         <li> Garaza </li>
+                         <li> Oluka </li>
+                     </ul>
+                     </a></div>
+                     <div class="style_prevu_kit img_add5" ><a href="/AddPost/6/" class="post_add_a">Moleraj
+                     <ul>
+                         <li> Usluge:</li>
+                         <li> Gletovanja</li>
+                         <li> Farbanja </li>
+                         <li> Krecenja </li>
+                         <li> Postavljanje tapeta </li>
+                     </ul>
+                     </a>
+                     </div>
+                     <div class="style_prevu_kit img_add6" ><a href="/AddPost/5/" class="post_add_a">Bastenski radovi
+                     <ul>
+                         <li> Uluge:</li>
+                         <li> Sadnje</li>
+                         <li> Branja </li>
+                         <li> Dekoracija </li>
+                         <li> Odrzavanje </li>
+                     </ul>
+                     </a>
+                     </div>
+                     <div class="style_prevu_kit img_add7" ><a href="/AddPost/4/" class="post_add_a">Selidbe<ul>
+                         <li> Usluge:</li>
+                         <li> Transporta</li>
+                         <li> Pakovanja </li>
+                         <li> Nosenja </li>
+                     </ul>
+                     </a></div>
+                     <div class="style_prevu_kit img_add8" ><a href="/AddPost/3/" class="post_add_a">Kucni ljubimci
+                     <ul>
+                         <li> Usluge:</li>
+                         <li> Setnje</li>
+                         <li> Cuvanja </li>
+                         <li> Sisanja </li>
+                     </ul>
+                     </a>
+                     </div>
+                     <div class="style_prevu_kit img_add9" ><a href="/AddPost/2/" class="post_add_a">IT usluge/tehnologija
+                     <ul>
+                         <li> Usluge:</li>
+                         <li> Sklapanja</li>
+                         <li> Odrzavanja </li>
+                         <li> Popravke </li>
+                         <li> Izrade stranica </li>
+                     </ul>
+                     </a>
+                     </div>
+                     <div class="style_prevu_kit img_add10" ><a href="/AddPost/1/" class="post_add_a">Odrzavanje automobila
+                     <ul>
+                         <li> Usluge:</li>
+                         <li> Slepanja</li>
+                         <li> Garaziranja </li>
+                         <li> Popravke </li>
+                     </ul>
+                     </a></div>
+
+
+                 </div>
+            </div>
+            </div>
+            </div>
+        </div>
+
+
+</div>
+</div>
+</div>
+    {% endif %}
+    {% if user.user_type  == user.MAJSTOR %}
+        <div class="container-fluid" >
+            <div class="row" style="margin-left: 0px; margin-right: 0px;">
+                <div class="col-2" id="profile">
+                    <div class="d-flex flex-column">
+                        <div class="profile">
+                            <img alt="example image" src="{{ user.profile_image.url }}" class="img-fluid rounded-circle">
+                            <h1 class="text-light"><a href="">{{ user.username }}</a></h1>
+                        </div>
+                        <nav id="navbar" class="nav-menu navbar menu">
+                            <ul class="menu-bar">
+                                <li class="nav-item"><a href="/" ><span>Moj profil</span></a></li>
+                                <li class="nav-item"><a href="https://majstor.cloud-petkovic.com/messages/inbox/" > <span>Poruke </span></a></li>
+                                <li class="nav-item"><a href="/PostPage/" > <span>Pogledaj te sve oglase: </span></a></li>
+                                <li class="nav-item"><a href="/members/edit_profile/" > <span>Izmeni profil </span></a></li>
+
+                            </ul>
+                        </nav><!-- .nav-menu -->
+                    </div>
+                </div>
+
+                <div class="col-10">
+                    <div class="container">
+                        <div class="section-title">
+                            <h2>Moj profil:</h2>
+                            <p>{{ user.bio }}</p>
+                        </div>
+                        <div class="row info">
+                            <div class="col-lg-4 aos-init aos-animate" data-aos="fade-right">
+                                <img alt="example image" src="{{ user.profile_image.url }}" class="img-fluid">
+                            </div>
+
+                            <div class="col-lg-8 pt-4 pt-lg-0 content aos-init aos-animate" data-aos="fade-left">
+                                <div class="row info">
+                                    <div class="col-lg-6">
+                                        <ul class="row-class">
+                                            <li><strong>Datum rodjenja:</strong> <span>1 May 1995</span></li>
+                                            <li> <strong>Email adresa:</strong> <span>{{ user.email }}</span></li>
+                                            <li> <strong>Broj telefona:</strong> <span>{{ user.phone_number }}</span></li>
+                                            <li> <strong>Grad:</strong> <span>New York, USA</span></li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <ul class="row-class">
+                                            <li> <strong>Ime:</strong> <span>{{ user.first_name }}</span></li>
+                                            <li> <strong>Prezime:</strong> <span>{{ user.last_name }}</span></li>
+                                            <li> <strong>Registracija:</strong> <span>{{ user.date_joined.date }}</span></li>
+                                            <li> <strong>Tip korisnika:</strong> <span>{{user.user_type}}</span></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12 category text-center">
+                                <h1>Pronadji oglas po kategoriji </h1>
+                                 <div class="row" id="category_view">
+                                     <div class="style_prevu_kit_cat img_add1" ><a href="/post-category/10" class="category_view_a">Stolarski radovi
+                                         <ul>
+                                             <li> Popravka:</li>
+                                             <li> Parketa</li>
+                                             <li> Ormana </li>
+                                             <li> Kreveta </li>
+                                             <li> Polica </li>
+                                         </ul>
+                                     </a>
+                                     </div>
+                                     <div class="style_prevu_kit_cat img_add2" ><a href="/post-category/9" class="category_view_a" >Vodoinstalater:
+                                         <ul>
+                                             <li> Popravka:</li>
+                                             <li> Bojlera</li>
+                                             <li> WC solja </li>
+                                             <li> Kada </li>
+                                             <li> Tuskabina </li>
+                                         </ul>
+                                     </a>
+                                     </div>
+                                     <div class="style_prevu_kit_cat img_add3" ><a href="/post-category/8" class="category_view_a">Spremanje/odrzavanje
+                                         <ul>
+                                             <li> Ciscenje:</li>
+                                             <li> Stanova</li>
+                                             <li> Garaza </li>
+                                             <li> Magacina </li>
+                                             <li> Poslovnih objekata </li>
+                                         </ul>
+                                     </a>
+                                     </div>
+
+                                     <div class="style_prevu_kit_cat img_add4" ><a href="/post-category/7" class="category_view_a">Montazni radovi
+                                         <ul>
+                                             <li> Popravka:</li>
+                                             <li> Fasada</li>
+                                             <li> Krovova </li>
+                                             <li> Garaza </li>
+                                             <li> Oluka </li>
+                                         </ul>
+                                     </a>
+                                     </div>
+                                     <div class="style_prevu_kit_cat img_add5" ><a href="/post-category/6" class="category_view_a">Moleraj
+                                         <ul>
+                                             <li> Usluge:</li>
+                                             <li> Gletovanja</li>
+                                             <li> Farbanja </li>
+                                             <li> Krecenja </li>
+                                             <li> Postavljanje tapeta </li>
+                                         </ul>
+                                     </a>
+                                     </div>
+                                     <div class="style_prevu_kit_cat img_add6" ><a href="/post-category/5" class="category_view_a">Bastenski radovi
+                                         <ul>
+                                             <li> Uluge:</li>
+                                             <li> Sadnje</li>
+                                             <li> Branja </li>
+                                             <li> Dekoracija </li>
+                                             <li> Odrzavanje </li>
+                                         </ul>
+                                     </a>
+                                     </div>
+                                     <div class="style_prevu_kit_cat img_add7" ><a href="/post-category/4" class="category_view_a">Selidbe<ul>
+                                         <li> Usluge:</li>
+                                         <li> Transporta</li>
+                                         <li> Pakovanja </li>
+                                         <li> Nosenja </li>
+                                     </ul>
+                                     </a>
+                                     </div>
+                                     <div class="style_prevu_kit_cat img_add8" ><a href="/post-category/3" class="category_view_a">Kucni ljubimci
+                                         <ul>
+                                             <li> Usluge:</li>
+                                             <li> Setnje</li>
+                                             <li> Cuvanja </li>
+                                             <li> Sisanja </li>
+                                         </ul>
+                                     </a>
+                                     </div>
+                                     <div class="style_prevu_kit_cat img_add9" ><a href="/post-category/2" class="category_view_a">IT usluge/tehnologija
+                                         <ul>
+                                             <li> Usluge:</li>
+                                             <li> Sklapanja</li>
+                                             <li> Odrzavanja </li>
+                                             <li> Popravke </li>
+                                             <li> Izrade stranica </li>
+                                         </ul>
+                                     </a>
+                                     </div>
+                                     <div class="style_prevu_kit_cat img_add10" ><a href="/post-category/1" class="category_view_a">Odrzavanje automobila
+                                         <ul>
+                                             <li> Usluge:</li>
+                                             <li> Slepanja</li>
+                                             <li> Garaziranja </li>
+                                             <li> Popravke </li>
+                                         </ul>
+                                     </a>
+                                     </div>
+                                 </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    {% endif %}
+    {% else %}
+
+
+<!--    Intro home page -->
+<div class="container-fluid" >
+  <div class="row text-center" id="homeImage">
+    <div class="col-12" id="introText">
+        <h4 class="display-4" id="textHome" > Neka vas probelm, bude resen danas!</h4>
+    </div>
+
+  </div>
+<!--    end intro   -->
+
+<!--    about home page     -->
+    <div class="row justify-content-md-center text-center" id="about">
+        <div class="col-md-3 offset-md-2" id="aboutText">
+            <h2>O nama i nasoj viziji</h2>
+            <p>has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
+          It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages,
+          and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+            <div class="row">
+                <div id="aboutBox1">
+                    <h4><img src="https://img.icons8.com/material/48/000000/group-foreground-selected.png"/>Step 1</h4>
+                    <h5> Prijava i registracija </h5>
+                    <p>Prvi korak ka uspesnom dogovoru je registracija posetioca sajta na <strong>KORISNIKE</strong> ili <strong>MAJSTORE.</strong> </br> U zavisnosti od toga sta ocekujete. Molimo vas do detalja procitajte step 1 kako bi ste bolje shvatili registraciju za nasu stranicu</p>
+                </div>
+                <div id="aboutBox1">
+                    <h4><img src="https://img.icons8.com/material/48/000000/task-completed.png"/>Step 2 </h4>
+                    <h5> Pretraga i postavka </h5>
+                    <p>U zavisnosti od odabira vrste posetioca naseg sajta.</br> U step 2 imacete opis, koje sve funkcije ce obuhvatiti vasa registracija.</p>
+                </div>
+                <div id="aboutBox1">
+                    <h4><img src="https://img.icons8.com/material/48/000000/visa--v1.png"/>Step 3</h4>
+                    <h5> Placanje </h5>
+                    <p>Nacin placanja se vrisi putem online uplate odredjenog dela sume i uzimanje u obzir proviziju naseg sajta u cenu.</br> Detaljan opis placanja mozete pronaci u nasem Step 3 clanku.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4" id="aboutImage"><img src="{% static 'post_user/image/slika4.jpg'  %}" alt="" style="width:100%;height:100%;object-fit:cover;object-position:50% 50%"></div>
+    </div>
+<!--        end about      -->
+
+
+<!--   Step 1 home page  -->
+ <div class="row justify-content-md-center text-center" id="step1">
+    <div class="col-md-4 offset-md-2" id="step1text">
+      <h1><strong>Step 1</strong></h1>
+        <p>Ukoliko imate problem sa kucnim aparatima,instalacijama,odrzavanju odredjenih stvari i mnogo drugih sitnica.</p>
+        <p>Niste u mogucnosti sami da resite, a ne znate kome da se obratite.<br> Dosli ste na pravo mesto.</p>
+        <p>Registrujte se na nas sajt, kao <strong style="color:#ff5821;">KORISNIK</strong> ili <strong style="color:#ff5821;">MAJSTOR</strong></p>
+        <p>Kao <strong style="color:#ff5821;">KORINIK</strong> imace te mogucnost da okacite vasu ponudu za nase majstore, kako bi na brz i efikasan nacin dosli do resenja vaseg problema. </p>
+        <p>Ako ste <strong style="color:#ff5821;">MAJSTOR</strong> imate visksa radnog vremena, u potazi ste za novim izazovima i ponudama, ovo je pravo mesto za vas, da steknete dodatnu zaradu i ostvarite nove kontakte.</p>
+        <a href="{% url 'register'%}" class="button">Registruj se</a> <a href="{% url 'login'%}" class="button">Prijavi se</a>
+    </div>
+    <div class="col-md-6" id="step1image"><img src="{% static 'post_user/image/slika4.jpg'  %}" alt="" style="width:100%;height:100%;object-fit:cover;object-position:50% 50%"></div>
+  </div>
+
+
+<!--    end step1   -->
+
+<!--step 2 home page    -->
+  <div class="row justify-content-md-center text-center" id="step2">
+    <div class="col-md-6" id="step2image"><img src="{% static 'post_user/image/slika5.jpg'  %}" alt="" style="width:100%;height:100%;object-fit:cover;object-position:50% 50%"></div>
+     <div class="col-md-6 " id="step2text">
+      <h1><strong>Step 2</strong></h1>
+      <p>Nakon uspesne prijave na nas sajt.</p>
+       <p>Kao <strong style="color:#ff5821;">KORISNIK</strong> imate mogucnost, da okacite vas problem:Opis problema,budzet,vreme posete.<br></p>
+       <p>I strpljivo sacekaj te ponude od <strong style="color:#ff5821;">MAJSTORA</strong></p>
+      <p>Ako ste registrovani kao <strong style="color:#ff5821;">MAJSTOR</strong></p>
+      <p>U zavisnosti od vaseg zanimanja i radnog iskustva, pogledaj te poslove koje su <strong style="color#ff5821;">KORISNICI</strong> okacili za vas. </p>
+      <p>Daj te vasu ponudu, i cekaj te odgovor od <strong style="color:#ff5821;">KORISNIKA</strong>.</p>
+    </div>
+  </div>
+<!--    end step2   -->
+
+<!--    step3 home page -->
+  <div class="row justify-content-md-center text-center" id="step3">
+    <div class="col-md-4 offset-md-2" id="step3text">
+      <h1><strong>Step 3</strong></h1>
+      <p>Ukoliko se <strong style="color:#ff5821;">KORISNIK</strong> svidja ponuda od <strong style="color:#ff5821;">Majstora</strong></p>
+      <p> Prihvati te je i predjite na sledeci korak placanje</p>
+      <p>Potrobno je da <strong style="color:#ff5821;">KORISNIK</strong> uplati polovinu dogovorene sume na racun <strong style="color:#ff5821;">MAJSTORA</strong>.</p>
+      <p>Dok ce nasa platforma odbiti skromnih 5% od dogovorene sume.</p>
+    </div>
+    <div class="col-md-6" id="step3image"><img src="{% static 'post_user/image/slika6.jpg'  %}" alt="" style="width:100%;height:500px;object-fit:cover;object-position:50% 50%"></div>
+  </div>
+<!--    end step3   -->
+
+</div>
+</div>
+
+{% endif %}
+{% endblock %}

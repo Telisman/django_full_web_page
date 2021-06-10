@@ -1,0 +1,114 @@
+{% extends "nav_footer.html" %}
+{% load static %}
+{% block content %}
+{% if user.is_authenticated %}
+<link rel="stylesheet" type="text/css" href="{% static 'post_user/add_post.css' %}">
+
+<div class="container-fluid">
+    <div class="row" style="margin-left: 0px; margin-right: 0px;">
+            <div class="col-2" id="add_post">
+                <div class="d-flex flex-column">
+                    <div class="profile">
+                        <img alt="example image" src="{{ user.profile_image.url }}" class="img-fluid rounded-circle">
+                        <h1 class="text-light"><a href="">{{ user.username }}</a></h1>
+                    </div>
+        <!--<svg>-->
+        <!--        <rect x="0" y="0" fill="none" width="100%" height="100%"/>-->
+        <!--      </svg>-->
+                    <nav id="navbar" class="nav-menu navbar">
+                        <ul class="menu-bar">
+                            <li class="nav-item"><a href="/" ><span>Moj profil</span></a></li>
+                            <li class="nav-item"><a href="/AddPost/0/" ><span>Dodaj post</span></a></li>
+                            <li class="nav-item"><a href="/Majstori/"> <span>Pogledaj sve majstore</span></a></li>
+                            <li class="nav-item"><a href="/MyPosts/" > <span>Moji postovi</span></a></li>
+                            <li class="nav-item"><a href="https://majstor.cloud-petkovic.com/messages/inbox/" > <span>Poruke </span></a></li>
+                            <li class="nav-item"><a href="/members/edit_profile/" > <span>Izmeni profil </span></a></li>
+
+                        </ul>
+                    </nav><!-- .nav-menu -->
+                </div>
+            </div><!-- End Header -->
+
+
+
+            <div class="col-6 text-center add_post_form" >
+                <h2> Add post</h2>
+                <form method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    {{ form.media }}
+                    {{ form.as_p }}
+                        <button class="btn form_btn">Dodaj zadatak</button>
+                         <button type="button" class="btn form_btn"  onclick="goBack()">Nazad</button>
+                    <script>
+                          function goBack() {
+                              window.history.back();
+                         }
+                        var name ="{{ user.id }}";
+                        document.getElementById("user").value = name;
+                    </script>
+                </form>
+            </div>
+
+    </div>
+</div>
+
+
+<!--<link rel="stylesheet" type="text/css" href="{% static 'post_user/add_post.css' %}">-->
+<!--<div class="container-fluid">-->
+
+<!--&lt;!&ndash;   h2 text intro &ndash;&gt;-->
+<!--   <div class="row text-center note-add" id="welcome_note">-->
+<!--        <h2 style="padding-top: 15px; color:white "><img style="height: 30px; width: 30px;" src="data:image/svg+xml;base64,PHN2ZyBpZD0iY29sb3IiIGVuYWJsZS1iYWNrZ3JvdW5kPSJuZXcgMCAwIDI0IDI0IiBoZWlnaHQ9IjUxMiIgdmlld0JveD0iMCAwIDI0IDI0IiB3aWR0aD0iNTEyIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxwYXRoIGQ9Im0xNC4yNSAwaC0xMS41Yy0xLjUyIDAtMi43NSAxLjIzLTIuNzUgMi43NXYxNS41YzAgMS41MiAxLjIzIDIuNzUgMi43NSAyLjc1aDYuNTljLS41NC0xLjE0LS44NC0yLjQxLS44NC0zLjc1IDAtMS4xNS4yMi0yLjI1LjY0LTMuMjYuMi0uNTEuNDUtMSAuNzQtMS40NS42NS0xLjAxIDEuNDktMS44NyAyLjQ4LTIuNTQuNTEtLjM1IDEuMDUtLjY0IDEuNjMtLjg2LjkzLS4zOSAxLjk1LS42MSAzLjAxLS42M3YtNS43NmMwLTEuNTItMS4yMy0yLjc1LTIuNzUtMi43NXoiIGZpbGw9IiNlY2VmZjEiLz48ZyBmaWxsPSIjOTBhNGFlIj48cGF0aCBkPSJtMTQgOWMwIC4wNSAwIC4xLS4wMS4xNC0uNTguMjItMS4xMi41MS0xLjYzLjg2aC04LjM2Yy0uNTUgMC0xLS40NS0xLTFzLjQ1LTEgMS0xaDljLjU1IDAgMSAuNDUgMSAxeiIvPjxwYXRoIGQ9Im05Ljg4IDEyLjU0Yy0uMjkuNDUtLjU0Ljk0LS43NCAxLjQ1LS4wNC4wMS0uMDkuMDEtLjE0LjAxaC01Yy0uNTUgMC0xLS40NS0xLTFzLjQ1LTEgMS0xaDVjLjM4IDAgLjcyLjIyLjg4LjU0eiIvPjxwYXRoIGQ9Im04IDZoLTRjLS41NTIgMC0xLS40NDgtMS0xcy40NDgtMSAxLTFoNGMuNTUyIDAgMSAuNDQ4IDEgMXMtLjQ0OCAxLTEgMXoiLz48L2c+PHBhdGggZD0ibTE3LjI1IDI0Yy0zLjcyMiAwLTYuNzUtMy4wMjgtNi43NS02Ljc1czMuMDI4LTYuNzUgNi43NS02Ljc1IDYuNzUgMy4wMjggNi43NSA2Ljc1LTMuMDI4IDYuNzUtNi43NSA2Ljc1eiIgZmlsbD0iIzIxOTZmMyIvPjxwYXRoIGQ9Im0xNy4yNSAyMWMtLjU1MiAwLTEtLjQ0OC0xLTF2LTUuNWMwLS41NTIuNDQ4LTEgMS0xczEgLjQ0OCAxIDF2NS41YzAgLjU1Mi0uNDQ4IDEtMSAxeiIgZmlsbD0iI2ZmZiIvPjxwYXRoIGQ9Im0yMCAxOC4yNWgtNS41Yy0uNTUyIDAtMS0uNDQ4LTEtMXMuNDQ4LTEgMS0xaDUuNWMuNTUyIDAgMSAuNDQ4IDEgMXMtLjQ0OCAxLTEgMXoiIGZpbGw9IiNmZmYiLz48L3N2Zz4=" />Postavite zadatak </h2>-->
+<!--    </div>-->
+
+
+<!--&lt;!&ndash;  right side &ndash;&gt;-->
+<!--   <div class="row text-center add_note_right">-->
+<!--      <div class="col">-->
+<!--         <img style="height:100%; width: 100%;" src="{% static 'post_user/image/add_post1.jpg'%}">-->
+<!--    </div>-->
+
+
+<!--&lt;!&ndash;   add post form&ndash;&gt;-->
+<!--    <div class="col-6">-->
+<!--       <div class="row text-center">-->
+<!--          <form method="post" enctype="multipart/form-data">-->
+<!--             {% csrf_token %}-->
+<!--             {{ form.media }}-->
+<!--             {{ form.as_p }}-->
+<!--             <button class="btn">Post</button>-->
+<!--             <button type="button" class="btn btn-sm btn-outline-secondary"  onclick="goBack()">Nazad</button>-->
+<!--             <script>-->
+<!--                  function goBack() {-->
+<!--                      window.history.back();-->
+<!--                     }-->
+<!--                  var name ="{{ user.id }}";-->
+<!--                  document.getElementById("user").value = name;-->
+<!--            </script>-->
+<!--         </form>-->
+<!--      </div>-->
+<!--    </div>-->
+
+
+
+
+
+
+
+
+<!--&lt;!&ndash;   left side &ndash;&gt;-->
+<!--    <div class="col">-->
+<!--     <img style="height:100%; width: 100%;" src="{% static 'post_user/image/add_post2.jpg'%}">-->
+<!--   </div>-->
+
+<!--</div>-->
+
+
+
+<!--</div>-->
+
+
+
+
+{% endif %}
+{% endblock %}

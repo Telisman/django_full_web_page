@@ -1,0 +1,137 @@
+@import url('https://fonts.googleapis.com/css?family=Muli&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Quicksand&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed&display=swap');
+
+.container-fluid {
+padding:0px;
+}
+
+#profile {
+  transition: all ease-in-out 0.5s;
+  transition: all 0.5s;
+  padding: 0;
+  background: #040b14;
+  border-top: 1px solid #ff5821;
+  border-bottom:1px solid #ff5821;
+}
+
+#profile .profile img {
+  margin: 15px auto;
+  display: block;
+  width: 120px;
+  border: 8px solid #2c2f3f;
+}
+
+#profile .profile h1 {
+  font-size: 24px;
+  margin: 0;
+  padding: 0;
+  font-weight: 600;
+  -moz-text-align-last: center;
+  text-align-last: center;
+  font-family: "Poppins", sans-serif;
+}
+
+#profile .profile h1 a, #header .profile h1 a:hover {
+  color: #ff5821;
+  font-size:30px;
+  text-decoration: none;
+}
+
+
+.nav-menu {
+  padding: 30px 0 0 0;
+}
+
+.nav-menu * {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  color: #ff5821;
+  font-size: 16px;
+  font-family: 'Anton', sans-serif;
+  letter-spacing: 1.5px;
+}
+
+
+.nav-menu a {
+  display: flex;
+  align-items: center;
+  color: #a8a9b4;
+  padding: 12px 15px;
+  margin-bottom: 8px;
+  transition: 0.3s;
+  font-size: 15px;
+}
+
+
+
+
+
+.menu-bar .nav-item a::before{
+  content: '';
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 0;
+  height: 2px;
+  background-color: white;
+  transition: width 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+
+}
+.menu {
+height:100%;
+}
+
+@media (hover: hover) and (pointer: fine) {
+.menu-bar .nav-item a:hover::before{
+    left: 0;
+    right: auto;
+    width: 100%;
+    color:white;
+  }
+}
+
+.navbar-dark .navbar-nav .nav-link {
+color:#ff5821;
+}
+
+
+
+.category_title {
+ padding-top:1%;
+ padding-bottom:2%;
+ color: #ff5821;
+ font-family: 'Anton', sans-serif;
+ letter-spacing: 2px;
+ }
+
+
+#hero .icon-box {
+  padding: 50px 30px;
+  position: relative;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 0 0 29px 0 rgba(18, 66, 101, 0.08);
+  transition: all 0.3s ease-in-out;
+  border-radius: 8px;
+  z-index: 1;
+  background-color: whitesmoke;
+
+}
+
+#hero .icon-box:hover {
+  transform: scale(1.09);
+}
+
+#hero .icon-box:hover .title a {
+  color: #2487ce;
+}
+
+.post_box {
+margin:0;
+padding-left:1%;
+padding-right:1%;
+padding-bottom:2%;
+}

@@ -1,0 +1,60 @@
+#imgLogin {
+padding: 0 0 0 0;
+}
+
+#form-login {
+padding: 0 0 0 0;
+
+}
+
+#form-login h2 {
+padding-top: 10%;
+color:#ff5821;
+font-size: 50px;
+text-align: center;
+font-family: 'Anton', sans-serif;
+ letter-spacing: 3px;
+}
+
+#id_username {
+width:65%;
+margin-left: 15%;
+}
+
+#id_password {
+width:65%;
+margin-left: 15%;
+}
+
+#form-login {
+padding-left: 100px;
+padding-right:100px;
+}
+
+#username_label{
+margin-top: 50px;
+margin-bottom: 20px;
+}
+
+#login-form {
+padding-top:10%;
+color:#ff5821;
+font-family: 'Anton', sans-serif;
+ letter-spacing: 3px;
+}
+
+.pull-right {
+margin-top:3%;
+background-color:#ff5821;
+color:white;
+width:150px;
+padding-top:3px;
+padding-bottom:3px;
+border-style:none;
+border-radius: 5px;
+}
+
+.pull-right:hover {
+background-color:#ff5821;
+color:#040b14;
+}

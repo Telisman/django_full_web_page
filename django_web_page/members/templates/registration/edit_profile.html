@@ -1,0 +1,87 @@
+{% extends "nav_footer.html" %}
+{% load static %}
+{% block content %}
+<link rel="stylesheet" type="text/css" href="{% static 'post_user/edit_profile.css' %}">
+{% if user.is_authenticated %}
+    {% if user.user_type  == user.KORISNIK %}
+<div class="container-fluid">
+    <div class="row ">
+        <div class="col-2" id="profile">
+            <div class="d-flex flex-column">
+                <div class="profile">
+                    <img alt="example image" src="{{ user.profile_image.url }}" class="img-fluid rounded-circle">
+                    <h1 class="text-light"><a href="">{{ user.username }}</a></h1>
+                </div>
+                <nav id="navbar" class="nav-menu navbar">
+                    <ul class="menu-bar">
+                        <li class="nav-item"><a href="/" ><span>Moj profil</span></a></li>
+                        <li class="nav-item"><a href="/AddPost/0/" ><span>Dodaj post</span></a></li>
+                        <li class="nav-item"><a href="/Majstori/"> <span>Pogledaj sve majstore</span></a></li>
+                        <li class="nav-item"><a href="/MyPosts/" > <span>Moji postovi</span></a></li>
+                        <li class="nav-item"><a href="https://majstor.cloud-petkovic.com/messages/inbox/" > <span>Poruke </span></a></li>
+                        <li class="nav-item"><a href="/members/edit_profile/" > <span>Izmeni profil </span></a></li>
+
+                    </ul>
+                </nav><!-- .nav-menu -->
+            </div>
+        </div><!-- End Header -->
+
+        <div class="col-md-6 text-center">
+            <h2> Izmeni profil:</h2>
+            <div class="form-group">
+                <div class="form">
+                    <form method="post" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        {{ form.as_p }}
+                        <button id="btn" class="btn_update_profile">Update profile</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+   </div>
+</div>
+{% endif %}
+{% if user.user_type  == user.MAJSTOR %}
+ <div class="container-fluid" >
+            <div class="row" style="margin-left: 0px; margin-right: 0px;">
+                <div class="col-2" id="profile">
+                    <div class="d-flex flex-column">
+                        <div class="profile">
+                            <img alt="example image" src="{{ user.profile_image.url }}" class="img-fluid rounded-circle">
+                            <h1 class="text-light"><a href="">{{ user.username }}</a></h1>
+                        </div>
+                        <nav id="navbar" class="nav-menu navbar menu">
+                            <ul class="menu-bar">
+                                <li class="nav-item"><a href="/" ><span>Moj profil</span></a></li>
+                                <li class="nav-item"><a href="https://majstor.cloud-petkovic.com/messages/inbox/" > <span>Poruke </span></a></li>
+                                <li class="nav-item"><a href="/members/edit_profile/" > <span>Izmeni profil </span></a></li>
+                            </ul>
+                        </nav><!-- .nav-menu -->
+                    </div>
+                </div>
+                <div class="col-md-6 text-center">
+            <h2> Izmeni profil:</h2>
+            <div class="form-group">
+                <div class="form">
+                    <form method="post" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        {{ form.as_p }}
+                        <button id="btn" class="btn_update_profile">Update profile</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+            </div>
+ </div>
+
+
+{% endif %}
+{% else %}
+
+
+
+{% endif %}
+
+
+{% endblock %}l>

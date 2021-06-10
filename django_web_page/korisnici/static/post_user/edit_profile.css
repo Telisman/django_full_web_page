@@ -1,0 +1,125 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Muli&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Quicksand&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
+
+
+
+
+.container-fluid {
+padding:0;
+}
+
+.row  {
+margin:0;
+}
+#profile {
+  transition: all ease-in-out 0.5s;
+  transition: all 0.5s;
+  padding: 0;
+  background: #040b14;
+  border-top: 1px solid #ff5821;
+  border-bottom:1px solid #ff5821;
+}
+
+#profile .profile img {
+  margin: 15px auto;
+  display: block;
+  width: 120px;
+  border: 8px solid #2c2f3f;
+}
+
+#profile .profile h1 {
+  font-size: 24px;
+  margin: 0;
+  padding: 0;
+  font-weight: 600;
+  -moz-text-align-last: center;
+  text-align-last: center;
+  font-family: "Poppins", sans-serif;
+}
+
+#profile .profile h1 a, #header .profile h1 a:hover {
+  color: #ff5821;
+  font-size:30px;
+  text-decoration: none;
+}
+
+
+.nav-menu {
+  padding: 30px 0 0 0;
+}
+
+.nav-menu * {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  color: #ff5821;
+  font-size: 16px;
+  font-family: 'Anton', sans-serif;
+  letter-spacing: 1.5px;
+
+
+}
+
+.nav-menu > ul > li {
+  position: relative;
+  white-space: nowrap;
+}
+
+.nav-menu a {
+  display: flex;
+  align-items: center;
+  color: #a8a9b4;
+  padding: 12px 15px;
+  margin-bottom: 8px;
+  transition: 0.3s;
+  font-size: 15px;
+}
+
+.nav-menu a i {
+  font-size: 24px;
+  padding-right: 8px;
+  color: #6f7180;
+}
+
+#navbar {
+height: 100%;
+}
+
+
+.col-md-6 h2{
+padding-top:2%;
+padding-bottom:5%;
+color:#ff5821;
+font-size:44px;
+}
+
+.form p {
+color:#ff5821;
+padding-bottom:1%;
+font-size:16px;
+}
+#id_bio {
+width:100%;
+}
+
+#id_password {
+display:None;
+}
+
+.helptext {
+display:None;
+}
+
+p id_password {
+display:None;
+}
+
+.btn_update_profile {
+background-color: #ff5821;
+border:None;
+padding:10px;
+margin-bottom:2%;
+color:white;
+}

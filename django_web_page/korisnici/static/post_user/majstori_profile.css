@@ -1,0 +1,166 @@
+@import url('https://fonts.googleapis.com/css2?family=Newsreader&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
+.majstori_profile{
+ padding:0;
+
+ }
+
+
+#profile {
+  transition: all ease-in-out 0.5s;
+  transition: all 0.5s;
+  padding: 0;
+  background: #040b14;
+  border-top: 1px solid #ff5821;
+  border-bottom:1px solid #ff5821;
+}
+
+#profile .profile img {
+  margin: 15px auto;
+  display: block;
+  width: 120px;
+  border: 8px solid #2c2f3f;
+}
+
+#profile .profile h1 {
+  font-size: 24px;
+  margin: 0;
+  padding: 0;
+  font-weight: 600;
+  -moz-text-align-last: center;
+  text-align-last: center;
+  font-family: "Poppins", sans-serif;
+}
+
+#profile .profile h1 a, #header .profile h1 a:hover {
+  color: #ff5821;
+  font-size:30px;
+  text-decoration: none;
+}
+
+#profile .profile .social-links a {
+  font-size: 18px;
+  display: inline-block;
+  background: #212431;
+  color: #fff;
+  line-height: 1;
+  padding: 8px 0;
+  margin-right: 4px;
+  border-radius: 50%;
+  text-align: center;
+  width: 36px;
+  height: 36px;
+  transition: 0.3s;
+}
+
+#profile .profile .social-links a:hover {
+  background: #149ddd;
+  color: #fff;
+  text-decoration: none;
+}
+
+
+
+.nav-menu {
+  padding: 30px 0 0 0;
+}
+
+.nav-menu * {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  color: #ff5821;
+  font-size: 16px;
+  font-family: 'Anton', sans-serif;
+  letter-spacing: 1.5px;
+
+
+}
+
+.nav-menu > ul > li {
+  position: relative;
+  white-space: nowrap;
+}
+
+.nav-menu a {
+  display: flex;
+  align-items: center;
+  color: #a8a9b4;
+  padding: 12px 15px;
+  margin-bottom: 8px;
+  transition: 0.3s;
+  font-size: 15px;
+}
+
+.nav-menu a i {
+  font-size: 24px;
+  padding-right: 8px;
+  color: #6f7180;
+}
+
+.nav-menu a:hover, .nav-menu .active, .nav-menu li:hover > a {
+  text-decoration: none;
+  color: white;
+}
+
+.nav-menu a:hover i, .nav-menu .active i, .nav-menu li:hover > a i {
+  color: #149ddd;
+}
+
+.section-title {
+padding-top: 50px;
+}
+.section-title h2 {
+font-family: 'Anton', sans-serif;
+}
+.about .content h3 {
+  font-weight: 700;
+  font-size: 26px;
+  color: #173b6c;
+}
+
+.about .content ul {
+  list-style: none;
+  padding: 0;
+}
+
+.about .content ul li {
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+}
+
+.about .content ul strong {
+  margin-right: 10px;
+  color:#ff5821;
+}
+b, strong {
+    font-weight: bolder;
+    color: #ff5821;
+}
+.about .content ul i {
+  font-size: 16px;
+  margin-right: 5px;
+  color: #149ddd;
+  line-height: 0;
+}
+
+.about .content p:last-child {
+  margin-bottom: 0;
+}
+.row-class {
+padding-top:10%;
+}
+.row .info ul li {
+padding-bottom:30px;
+}
+
+.row .info {
+    padding-bottom: 10%;
+}
+
+.section-title h2 {
+    color:#ff5821;
+    font-family: 'Anton', sans-serif;
+    letter-spacing: 1.5px
+}

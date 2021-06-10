@@ -1,0 +1,53 @@
+@import url('https://fonts.googleapis.com/css?family=Muli&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Quicksand&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed&display=swap');
+
+
+#form-register {
+padding: 0 0 0 0;
+
+}
+
+#form_register {
+width:65%;
+margin-left: 15%;
+color: #ff5821;
+}
+
+#imgRegister {
+padding: 0 0 0 0;
+}
+
+#form_register p {
+font-size:20px;
+font-family: 'Anton', sans-serif;
+ letter-spacing: 1.5px;
+}
+#id_user_type {
+padding-top:0px;
+}
+#form-register h2 {
+padding-top: 5%;
+color:#ff5821;
+font-size: 50px;
+text-align: center;
+font-family: 'Anton', sans-serif;
+ letter-spacing: 3px;
+}
+
+#form_register p strong {
+color:#040b14;
+font-family: 'Barlow Condensed', sans-serif;
+}
+
+.btn_register {
+margin-top:3%;
+background-color:#ff5821;
+color:white;
+width:150px;
+padding-top:3px;
+padding-bottom:3px;
+border-style:none;
+border-radius: 5px;
+}

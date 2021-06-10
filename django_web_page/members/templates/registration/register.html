@@ -1,0 +1,35 @@
+{% extends "nav_footer.html" %}     #django ce da pronadje nav_footer.html u post_user app
+{% load static %}
+{% block content %}
+
+
+<link rel="stylesheet" type="text/css" href="{% static 'post_user/register_page.css' %}">
+<div class="container-fluid">
+<div class="row justify-content-md-center text-center" id="step1">
+            <div class="col-md-6" id="form-register">
+            <h2 style=" padding-top:50px;">Registruj se, na nas sajt.</h2>
+                <form method="post"  id="form_register">
+                    {% csrf_token %}
+                    <p style="padding-top:20px;"><label for="id_username" >Korisnicko ime:</label> <input type="text" name="username" maxlength="100" autofocus="" class="form-control" required="" id="id_username"></p>
+                    <p style="padding-top:20px;"><label for="id_first_name">Ime:</label> <input type="text" name="first_name" class="form-control" maxlength="100" required="" id="id_first_name"></p>
+                    <p style="padding-top:20px;"><label for="id_last_name" >Prezime:</label> <input type="text" name="last_name" class="form-control" maxlength="100" required="" id="id_last_name"></p>
+                    <p style="padding-top:20px;"><label for="id_email" >Email:</label> <input type="email" name="email" class="form-control" required="" id="id_email"></p>
+                    <p style="padding-top:20px;"><label for="id_password1">Sifra:</label> <input type="password" name="password1" class="form-control" required="" id="id_password1"> <span class="helptext"></span></p>
+                    <p style="padding-top:20px;"><strong> Vasa sifra mora da sadrzi minimum 8 karaktera.</br> Ne moze biti slicna vasem korisnickom imenu i email adresi. </br>Nesme da sa drzi samo numericke borjeve. </strong></p>
+                    <p style="padding-top:20px;"><label for="id_password2" >Ponovite sifru!</label> <input type="password" name="password2" class="form-control" required="" id="id_password2"></p><p style="padding-top:20px;"> <label for="id_user_type"  >Registruj se kao:</label>
+                    <select name="user_type" required="" id="id_user_type" >
+                        <option value="" selected="">---------</option>
+                        <option value="1">majstor</option>
+                        <option value="2">korisnik</option>
+                    </select></p>
+                    <p style="font-size:20px; padding-top:20px;" ><label for="id_profile_image" style="padding-top:0px;">Profilna slika:</label> <input type="file" name="profile_image" accept="image/*" id="id_profile_image" ></p>
+                    <button id="btn" class="btn_register">Register</button>
+                </form>
+        </div>
+    <div class="col-md-6" id="imgRegister">
+        <img src="/static/post_user/image/registrationImage.jpg" alt="" style="width:100%;height:100%;object-fit:cover;object-position:50% 50%">
+    </div>
+</div>
+</div>
+
+{% endblock %}

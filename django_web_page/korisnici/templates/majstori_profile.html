@@ -1,0 +1,95 @@
+{% extends "nav_footer.html" %}
+{% load static %}
+{% block content %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'post_user/majstori_profile.css' %}">
+<div class="container-fluid majstori_profile">
+   <div class="row">
+        <div class="col-2" id="profile">
+            <div class="d-flex flex-column">
+                <div class="profile">
+
+
+                    <img alt="example image" src="{{ user.profile_image.url }}" class="img-fluid rounded-circle">
+
+                    <h1 class="text-light"><a href="">{{ user.username }}</a></h1>
+                </div>
+                <nav id="navbar" class="nav-menu navbar menu">
+                    <ul class="menu-bar">
+                        <li class="nav-item"><a href="/" ><span>Moj profil</span></a></li>
+                        <li class="nav-item"><a href="/AddPost/0/" ><span>Dodaj post</span></a></li>
+                        <li class="nav-item"><a href="/Majstori/"> <span>Pogledaj sve majstore</span></a></li>
+                        <li class="nav-item"><a href="/MyPosts/" > <span>Moji postovi</span></a></li>
+                        {% load inbox %}
+                        <li class="nav-item"><a href="https://majstor.cloud-petkovic.com/messages/inbox/" > <span>Poruke: </span>  {% inbox_count %}</a></li>
+                        <li class="nav-item"><a href="/members/edit_profile/" > <span>Izmeni profil </span></a></li>
+                    </ul>
+                </nav><!-- .nav-menu -->
+            </div>
+        </div>
+
+
+      <div class="col-10">
+        <div class="container">
+           <div class="section-title">
+              <h2>Moj profil:</h2>
+              <p>{{ user.bio }}</p>
+           </div>
+
+           <div class="row info">
+              <div class="col-lg-4 aos-init aos-animate" data-aos="fade-right">
+                 <img alt="example image" src="{{ page_user.profile_image.url }}" class="img-fluid">
+              </div>
+              <div class="col-lg-8 pt-4 pt-lg-0 content aos-init aos-animate" data-aos="fade-left">
+                 <div class="row info">
+                    <div class="col-lg-6">
+                       <ul class="row-class">
+                          <li><strong>Datum rodjenja:</strong> <span>1 May 1995</span></li>
+                          <li> <strong>Email adresa:</strong> <span>{{ page_user.email }}</span></li>
+                          <li> <strong>Broj telefona:</strong> <span>{{ page_user.phone_number }}</span></li>
+                          <li> <strong>Grad:</strong> <span>New York, USA</span></li>
+                       </ul>
+                    </div>
+                    <div class="col-lg-6">
+                       <ul class="row-class">
+                          <li> <strong>Ime:</strong> <span>{{page_user.first_name }}</span></li>
+                          <li> <strong>Prezime:</strong> <span>{{ page_user.last_name }}</span></li>
+                          <li> <strong>Registracija:</strong> <span>{{ page_user.date_joined.date }}</span></li>
+                          <li> <strong>Tip korisnika:</strong> <span>{{page_user.user_type}}</span></li>
+                       </ul>
+                    </div>
+                 </div>
+              </div>
+            </div>
+        </div>
+      </div>
+
+
+
+
+
+   </div>
+</div>
+
+
+
+
+
+<!--<div class="container">-->
+<!--<div class="row" id="nesto">-->
+<!--<div class="col-md-4" id="post_page_div">-->
+<!--   <div class="card mb-4 box-shadow">-->
+<!--      {% if page_user.profile_image%}-->
+<!--      <img class="card-img-top" data-src="holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail" alt="Thumbnail [100%x225]" style="height: 225px; width: 100%; display: block;" src="{{ page_user.profile_image.url }}" data-holder-rendered="true">-->
+<!--      {% endif %}-->
+<!--      <div class="card-body">-->
+<!--         <p class="card-text"><strong>Username: {{ page_user.username }}</strong></p>-->
+<!--         <p class="card-text"><strong>First name:</strong>  {{page_user.first_name }}</p>-->
+<!--         <p class="card-text"><strong>Last name:</strong>  {{ page_user.last_name }}</p>-->
+<!--         <p class="card-text"><strong>Phone number:</strong>  {{ page_user.phone_number }}</p>-->
+<!--         <p class="card-text"><strong>Email:</strong>  {{ page_user.email }}</p>-->
+<!--         <p class="card-text"><strong>Biography:</strong>  {{ page_user.bio }}</p>-->
+<!--      </div>-->
+<!--   </div>-->
+<!--</div>-->
+{% endblock %}

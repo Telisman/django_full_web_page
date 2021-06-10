@@ -1,0 +1,127 @@
+{% extends "nav_footer2.html" %}
+{% load static %}
+{% block content %}
+<div id="user-profile-2" class="user-profile">
+		<div class="tabbable">
+			<ul class="nav nav-tabs padding-18">
+				<li class="active">
+					<a data-toggle="tab" href="#home">
+						<i class="ace-icon fa fa-user bigger-120"></i>
+						Profil
+					</a>
+				</li>
+
+				<li>
+					<a data-toggle="tab" href="#feed">
+						<i class="ace-icon fa fa-rss bigger-120"></i>
+						Aktivnost
+					</a>
+				</li>
+
+				<li>
+					<a data-toggle="tab" href="#friends">
+						<i class="ace-icon fa fa-star bigger-120"></i>
+						Ocene
+					</a>
+				</li>
+			</ul>
+
+			<div class="tab-content no-border padding-24">
+				<div id="home" class="tab-pane in active">
+					<div class="row">
+						<div class="col-xs-12 col-sm-3 center">
+							<span class="profile-picture">
+								<img class="editable img-responsive" alt=" Avatar" id="avatar2" src="{{ page_user.profile_image.url }}">
+							</span>
+
+							<div class="space space-4"></div>
+
+							<a href="{% url 'edit_user' %}" class="btn btn-sm btn-block btn-success">
+								<i class="ace-icon fa fa-plus-circle bigger-120"></i>
+								<span class="bigger-110">Izmeni profil</span>
+							</a>
+						</div><!-- /.col -->
+
+						<div class="col-xs-12 col-sm-9">
+							<h4 class="blue">
+								<span class="middle">{{ page_user.first_name }} - {{ page_user.last_name }}</span>
+
+								<span class="label label-purple arrowed-in-right">
+									<i class="ace-icon fa fa-circle smaller-80 align-middle"></i>
+									online
+								</span>
+							</h4>
+
+							<div class="profile-user-info">
+								<div class="profile-info-row">
+									<div class="profile-info-name"> Korisnicno ime </div>
+
+									<div class="profile-info-value">
+										<span>{{ page_user.username }}</span>
+									</div>
+								</div>
+
+								<div class="profile-info-row">
+									<div class="profile-info-name"> Lokacija </div>
+
+									<div class="profile-info-value">
+										<i class="fa fa-map-marker light-orange bigger-110"></i>
+										<span></span>
+										<span></span>
+									</div>
+								</div>
+
+								<div class="profile-info-row">
+									<div class="profile-info-name"> Godina </div>
+
+									<div class="profile-info-value">
+										<span></span>
+									</div>
+								</div>
+
+								<div class="profile-info-row">
+									<div class="profile-info-name"> Aktivan od </div>
+
+									<div class="profile-info-value">
+										<span></span>
+									</div>
+								</div>
+
+							</div>
+
+							<div class="hr hr-8 dotted"></div>
+
+							<div class="profile-user-info">
+								</div>
+							</div>
+						</div><!-- /.col -->
+					</div><!-- /.row -->
+
+					<div class="space-20"></div>
+
+					<div class="row">
+						<div class="col-xs-12 col-sm-6">
+							<div class="widget-box transparent">
+								<div class="widget-header widget-header-small">
+									<h4 class="widget-title smaller">
+										<i class="ace-icon fa fa-check-square-o bigger-110"></i>
+										Bio
+									</h4>
+								</div>
+
+								<div class="widget-body">
+									<div class="widget-main">
+										<p>
+											{{ page_user.bio }}
+										</p>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div><!-- /#home -->
+			</div>
+		</div>
+	</div>
+
+{% endblock %}

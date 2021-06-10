@@ -1,0 +1,157 @@
+{% extends "nav_footer.html" %}
+{% load staticfiles %}
+{% load i18n %}
+{% block content %}
+<link rel="stylesheet" type="text/css" href="{% static 'post_user/compose.css' %}">
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet"/>
+<div class="container-fluid">
+    <div class="row" style="margin-left: 0px; margin-right: 0px;">
+        <!--User menu-->
+        {% if user.is_authenticated %}
+        {% if user.user_type == user.KORISNIK %}
+
+        <div class="col-2" id="profile">
+            <div class="d-flex flex-column">
+                <div class="profile">
+                    {% if user.profile_image %}
+                    <img alt="example image" src="{{ user.profile_image.url }}" class="img-fluid rounded-circle">
+                    {% endif %}
+                    <h1 class="text-light"><a href="">{{ user.username }}</a></h1>
+                </div>
+                <nav id="navbar" class="nav-menu navbar menu">
+                    <ul class="menu-bar">
+                        <li class="nav-item"><a href="/"><span>Moj profil</span></a></li>
+                        <li class="nav-item"><a href="/AddPost/0/"><span>Dodaj post</span></a></li>
+                        <li class="nav-item"><a href="/Majstori/"> <span>Pogledaj sve majstore</span></a></li>
+                        <li class="nav-item"><a href="/MyPosts/"> <span>Moji postovi</span></a></li>
+                        <li class="nav-item"><a href="https://majstor.cloud-petkovic.com/messages/inbox/">
+                            <span>Poruke </span></a></li>
+                        <li class="nav-item"><a href="/members/edit_profile/"> <span>Izmeni profil </span></a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+        {% endif %}
+
+        {% if user.user_type == user.MAJSTOR %}
+
+        <div class="col-2" id="profile">
+            <div class="d-flex flex-column">
+                <div class="profile">
+                    {% if user.profile_image %}
+                    <img alt="example image" src="{{ user.profile_image.url }}"
+                         class="img-fluid rounded-circle">
+                    {% endif %}
+                    <h1 class="text-light"><a href="">{{ user.username }}</a></h1>
+                </div>
+                <nav id="navbar" class="nav-menu navbar menu">
+                    <ul class="menu-bar">
+                        <li class="nav-item"><a href="/"><span>Moj profil</span></a></li>
+                        <li class="nav-item"><a href="https://majstor.cloud-petkovic.com/messages/inbox/">
+                            <span>Poruke </span></a></li>
+                        <li class="nav-item"><a href="/PostPage/"> <span>Pogledaj te sve oglase: </span></a>
+                        </li>
+                        <li class="nav-item"><a href="/members/edit_profile/"> <span>Izmeni profil </span></a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+        {% endif %}
+        <div class="col-10">
+            <div class="container-fluid">
+                <div class="col-12 text-center">
+                    <h3> Posalji poruku </h3>
+                </div>
+                <div class="col-12 ">
+
+                    <form action="" method="post">
+                        {% csrf_token %}
+                        <table>
+                            {{ form.as_table }}
+                        </table>
+                        <input type="submit" value="{% trans " Send" %} &raquo;"/>
+                    </form>
+                    <button type="button" class="btn btn-sm btn-outline-secondary" onclick="goBack()">Nazad</button>
+                </div>
+            </div>
+        </div>
+
+        <!--                            <form action="" method="post" class="form-message">-->
+        <!--                                <input type="hidden" name="csrfmiddlewaretoken"-->
+        <!--                                       value="zGzWI6mKMfErcixMNtHof5URo4NtOGmIrSyVkSNFbHb3N65vy53DtdHnsdPIG1io">-->
+        <!--                                <table>-->
+        <!--                                    <tbody>-->
+        <!--                                    <tr>-->
+        <!--                                        <th>-->
+        <!--                                            <label for="id_recipient">-->
+        <!--                                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"-->
+        <!--                                                     fill="currentColor" class="bi bi-person-square"-->
+        <!--                                                     viewBox="0 0 16 16">-->
+        <!--                                                    <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"></path>-->
+        <!--                                                    <path d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm12 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1v-1c0-1-1-4-6-4s-6 3-6 4v1a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12z"></path>-->
+        <!--                                                </svg>-->
+        <!--                                                Korisnik: </label>-->
+        <!--                                        </th>-->
+        <!--                                        <td>-->
+        <!--                                            <input type="text" name="recipient" value="admin47" required=""-->
+        <!--                                                   id="id_recipient">-->
+        <!--                                        </td>-->
+        <!--                                    </tr>-->
+        <!--                                    <tr>-->
+        <!--                                        <th>-->
+        <!--                                            <label for="id_subject">-->
+        <!--                                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"-->
+        <!--                                                     fill="currentColor" class="bi bi-pen" viewBox="0 0 16 16">-->
+        <!--                                                    <path d="m13.498.795.149-.149a1.207 1.207 0 1 1 1.707 1.708l-.149.148a1.5 1.5 0 0 1-.059 2.059L4.854 14.854a.5.5 0 0 1-.233.131l-4 1a.5.5 0 0 1-.606-.606l1-4a.5.5 0 0 1 .131-.232l9.642-9.642a.5.5 0 0 0-.642.056L6.854 4.854a.5.5 0 1 1-.708-.708L9.44.854A1.5 1.5 0 0 1 11.5.796a1.5 1.5 0 0 1 1.998-.001zm-.644.766a.5.5 0 0 0-.707 0L1.95 11.756l-.764 3.057 3.057-.764L14.44 3.854a.5.5 0 0 0 0-.708l-1.585-1.585z"/>-->
+        <!--                                                </svg>-->
+        <!--                                                Naslov:</label>-->
+        <!--                                        </th>-->
+        <!--                                        <td>-->
+        <!--                                            <input type="text" name="subject" maxlength="140" required=""-->
+        <!--                                                   id="id_subject">-->
+        <!--                                        </td>-->
+        <!--                                    </tr>-->
+
+        <!--                                    <tr>-->
+        <!--                                        <th>-->
+        <!--                                            <label for="id_body">-->
+        <!--                                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"-->
+        <!--                                                     fill="currentColor" class="bi bi-chat-right-text"-->
+        <!--                                                     viewBox="0 0 16 16">-->
+        <!--                                                    <path d="M2 1a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h9.586a2 2 0 0 1 1.414.586l2 2V2a1 1 0 0 0-1-1H2zm12-1a2 2 0 0 1 2 2v12.793a.5.5 0 0 1-.854.353l-2.853-2.853a1 1 0 0 0-.707-.293H2a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h12z"/>-->
+        <!--                                                    <path d="M3 3.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zM3 6a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9A.5.5 0 0 1 3 6zm0 2.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5z"/>-->
+        <!--                                                </svg>-->
+        <!--                                                Sadrzaj:</label>-->
+        <!--                                        </th>-->
+        <!--                                        <td>-->
+        <!--                                            <textarea name="body" cols="55" rows="12" required=""-->
+        <!--                                                      id="id_body"></textarea>-->
+        <!--                                        </td>-->
+        <!--                                    </tr>-->
+        <!--                                    </tbody>-->
+        <!--                                </table>-->
+        <!--                                <input type="submit" value="Send »" class="send-but">-->
+        <!--                            </form>-->
+        <!--                        </div>-->
+
+        <!--                        <script>-->
+
+        <!--                        function goBack() {-->
+        <!--                         window.history.back();-->
+        <!--                         }-->
+
+        <!--                        </script>-->
+
+        <!--                    </div>-->
+        <!--                </div>-->
+        <!--                {% endif %}-->
+
+        <!--            </div>-->
+        <!--        </div>-->
+
+    </div>
+</div>
+
+{% endblock %}
+

@@ -1,0 +1,175 @@
+@import url('https://fonts.googleapis.com/css?family=Muli&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Quicksand&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed&display=swap');
+
+
+.container-fluid{
+padding:0px;
+}
+
+#profile {
+  transition: all ease-in-out 0.5s;
+  transition: all 0.5s;
+  padding: 0;
+  background: #040b14;
+  border-top: 1px solid #ff5821;
+  border-bottom:1px solid #ff5821;
+}
+
+#profile .profile img {
+  margin: 15px auto;
+  display: block;
+  width: 120px;
+  border: 8px solid #2c2f3f;
+}
+
+#profile .profile h1 {
+  font-size: 24px;
+  margin: 0;
+  padding: 0;
+  font-weight: 600;
+  -moz-text-align-last: center;
+  text-align-last: center;
+  font-family: "Poppins", sans-serif;
+}
+
+#profile .profile h1 a, #header .profile h1 a:hover {
+  color: #ff5821;
+  font-size:30px;
+  text-decoration: none;
+}
+
+
+.nav-menu {
+  padding: 30px 0 0 0;
+}
+
+.nav-menu * {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  color: #ff5821;
+  font-size: 16px;
+  font-family: 'Anton', sans-serif;
+  letter-spacing: 1.5px;
+
+
+}
+
+.nav-menu > ul > li {
+  position: relative;
+  white-space: nowrap;
+}
+
+.nav-menu a {
+  display: flex;
+  align-items: center;
+  color: #a8a9b4;
+  padding: 12px 15px;
+  margin-bottom: 8px;
+  transition: 0.3s;
+  font-size: 15px;
+}
+
+.nav-menu a i {
+  font-size: 24px;
+  padding-right: 8px;
+  color: #6f7180;
+}
+
+
+
+
+.row-class {
+padding-top:10%;
+}
+.row .info ul li {
+padding-bottom:30px;
+}
+.section-title {
+padding-top: 50px;
+}
+.section-title h2 {
+font-family: 'Anton', sans-serif;
+}
+.text-light {
+height:30px;
+}
+.row .info {
+    padding-bottom: 3%;
+}
+.add-post {
+    padding-top: 2%;
+    border-top: 1.5px solid #ff5821;
+    padding-left: 25%;
+    padding-right: 25%;
+    padding-bottom:10%;
+}
+.menu-bar a {
+    color: #ff5821;
+    font-family: 'Anton', sans-serif;
+    letter-spacing: 2px;
+    position: relative;
+   margin-left:10px;
+       text-decoration: none;
+
+}
+
+
+.menu-bar .nav-item a::before{
+  content: '';
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 0;
+  height: 2px;
+  background-color: white;
+  transition: width 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+
+}
+.menu {
+height:100%;
+}
+
+@media (hover: hover) and (pointer: fine) {
+.menu-bar .nav-item a:hover::before{
+    left: 0;
+    right: auto;
+    width: 100%;
+    color:white;
+  }
+}
+
+.navbar-dark .navbar-nav .nav-link {
+color:#ff5821;
+}
+
+
+
+
+
+
+
+
+
+h3 {
+    color:#ff5821;
+    padding-top:3%;
+    padding-bottom:2%;
+    font-family: 'Anton', sans-serif;
+    letter-spacing: 1.5px;
+}
+
+
+
+.form-message {
+    margin-left: 35%;
+    margin-bottom:2%;
+    font-family: 'Anton', sans-serif;
+    letter-spacing: 1.8px;
+    font-size:18px;
+
+}
+
+

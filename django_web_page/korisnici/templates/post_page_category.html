@@ -1,0 +1,35 @@
+{% extends "nav_footer.html" %}
+{% load static %}
+{% block content %}
+<div class="container-fluid padding">
+   <div class="row text-center">
+      <div class="col-md-4">
+         <hr class="light">
+         <p>
+         <h4>Select category</h4>
+         </p>
+         <ul>
+            {% for cat in category %}
+            <li>
+               <a href=""> {{ cat.category_title }}</a>
+            </li>
+            {% endfor %}
+         </ul>
+      </div>
+      <div class="col-md-8">
+         {% for post in posts %}
+         <hr class="light">
+         <p>
+         <h3>Title:</h3>
+         {{ post.task_title }}</p>
+         <p>
+         <h3>Description:</h3>
+         <a href="{% url 'post_detail' post.pk %}"> {{ post.task_discription }}</a></p>
+         <p>Category:{{ post.task_category }} </p>
+         <p>Tools:{{ post.recommended_tools }} </p>
+         <p>Budget:{{ post.budget }} </p>
+         {% endfor %}
+      </div>
+   </div>
+</div>
+{% endblock %}

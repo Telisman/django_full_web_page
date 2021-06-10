@@ -1,0 +1,30 @@
+{% extends "nav_footer.html" %}     #django ce da pronadje nav_footer.html u post_user app
+{% load static %}
+{% block content %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'post_user/loginpage.css' %}">
+<div class="container-fluid">
+<div class="row justify-content-md-center text-center" id="step1">
+    <div class="col-md-6" id="imgLogin"><img src="/static/post_user/image/loginpicture.jpg" alt="" style="width:100%;height:800px;object-fit:cover;object-position:50% 50%"></div>
+    <div class="col-md-6  " id="form-login">
+        <h2>Ulogujte se na vasu stranicu </h2>
+       <form id="login-form" method="post">
+                {% csrf_token %}
+                        <label for="id_username" style="margin-top: 50px; margin-bottom: 20px;">Korisnicko ime</label>
+                        <input id="id_username" name="username" type="text" class="form-control">
+                        <label for="id_password" style="margin-top: 50px; margin-bottom: 20px;">Sifra</label>
+                        <input id="id_password" name="password" type="password" class="form-control">
+                 {% if form.errors %}
+                    <br class=" label label-danger">
+                        Vase korisnicko ime i sifra, se ne poklapaju.</br>
+                        Proverite ispravnost vasih podataka.
+                    </p>
+                {% endif %}
+                <input type="submit" value="Login" class="btn btn-primary pull-right"  style="margin-top: 50px;" />
+            </form>
+    </div>
+</div>
+</div>
+
+
+{% endblock %}

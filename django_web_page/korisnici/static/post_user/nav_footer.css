@@ -1,0 +1,115 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Muli&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Quicksand&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
+
+.navbar  {
+height:100px;
+    color: #ff5821!Important;
+}
+a {
+  color: #ff5821!Important;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #ff5821!Important;
+  text-decoration: none;
+}
+.bg-dark {
+background-color:#040b14;
+}
+
+.navbar-brand{
+    padding-left: 1%;
+    padding-right: 1%;
+    color: #ff5821;
+    font-family: 'Anton', sans-serif;
+    letter-spacing: 2px;
+    margin:0;
+
+}
+
+
+.navbar-nav {
+    font-family: 'Anton', sans-serif;
+}
+
+.nav-right .nav-link{
+    padding-left: 0px;
+    padding-bottom: 0px;
+    padding-top: 0px;
+    padding-right: 10px;
+
+}
+
+.nav-right {
+	position: absolute;
+    right: 0;
+	display: flex;
+}
+.nav-right a {
+	color: #ff5821;
+    font-family: 'Anton', sans-serif;
+    letter-spacing: 2px;
+    position: relative;
+    text-decoration: none;
+
+}
+.nav-right a::before{
+  content: '';
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 0;
+  height: 2px;
+  background-color: white;
+  transition: width 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+}
+@media (hover: hover) and (pointer: fine) {
+.nav-right a:hover::before{
+    left: 0;
+    right: auto;
+    width: 100%;
+  }
+}
+
+
+.menu-bar a {
+    color: #ff5821;
+    font-family: 'Anton', sans-serif;
+    letter-spacing: 2px;
+    position: relative;
+   margin-left:10px;
+       text-decoration: none;
+
+}
+
+
+.menu-bar .nav-item a::before{
+  content: '';
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 0;
+  height: 2px;
+  background-color: white;
+  transition: width 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+
+}
+
+
+
+
+@media (hover: hover) and (pointer: fine) {
+.menu-bar .nav-item a:hover::before{
+    left: 0;
+    right: auto;
+    width: 100%;
+    color:white;
+  }
+}
+
+.navbar-dark .navbar-nav .nav-link {
+color:#ff5821;
+}

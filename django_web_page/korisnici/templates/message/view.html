@@ -1,0 +1,196 @@
+{% extends "nav_footer.html" %}
+{% load staticfiles %}
+{% load i18n %}
+
+{% block content %}
+<link rel="stylesheet" type="text/css" href="{% static 'post_user/compose.css' %}">
+
+<div class="container-fluid">
+    <div class="row" style="margin-left: 0px; margin-right: 0px;">
+        {% if user.is_authenticated %}
+        {% if user.user_type == user.KORISNIK %}
+
+        <div class="col-2" id="profile">
+            <div class="d-flex flex-column">
+                <div class="profile">
+                    {% if user.profile_image %}
+                    <img alt="example image" src="{{ user.profile_image.url }}" class="img-fluid rounded-circle">
+                    {% endif %}
+                    <h1 class="text-light"><a href="">{{ user.username }}</a></h1>
+                </div>
+                <nav id="navbar" class="nav-menu navbar menu">
+                    <ul class="menu-bar">
+                        <li class="nav-item"><a href="/"><span>Moj profil</span></a></li>
+                        <li class="nav-item"><a href="/AddPost/0/"><span>Dodaj post</span></a></li>
+                        <li class="nav-item"><a href="/Majstori/"> <span>Pogledaj sve majstore</span></a></li>
+                        <li class="nav-item"><a href="/MyPosts/"> <span>Moji postovi</span></a></li>
+                        <li class="nav-item"><a href="https://majstor.cloud-petkovic.com/messages/inbox/">
+                            <span>Poruke </span></a></li>
+                        <li class="nav-item"><a href="/members/edit_profile/"> <span>Izmeni profil </span></a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+        {% endif %}
+
+        {% if user.user_type == user.MAJSTOR %}
+
+        <div class="col-2" id="profile">
+            <div class="d-flex flex-column">
+                <div class="profile">
+                    {% if user.profile_image %}
+                    <img alt="example image" src="{{ user.profile_image.url }}" class="img-fluid rounded-circle">
+                    {% endif %}
+                    <h1 class="text-light"><a href="">{{ user.username }}</a></h1>
+                </div>
+                <nav id="navbar" class="nav-menu navbar menu">
+                    <ul class="menu-bar">
+                        <li class="nav-item"><a href="/"><span>Moj profil</span></a></li>
+                        <li class="nav-item"><a href="https://majstor.cloud-petkovic.com/messages/inbox/">
+                            <span>Poruke </span></a></li>
+                        <li class="nav-item"><a href="/PostPage/"> <span>Pogledaj te sve oglase: </span></a></li>
+                        <li class="nav-item"><a href="/members/edit_profile/"> <span>Izmeni profil </span></a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+        {% endif %}
+
+        {% endif %}
+        <div class="col-10">
+            <div class="col-12">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-10">
+                            <table class="table">
+                                <thead>
+                                <tr>
+                                    <th scope="col" style=" width: 500px;"><h3>Naslov</h3>
+
+                                    </th>
+
+
+                                    <th scope="col">
+                                        <h3>Datum</h3>
+                                    </th>
+
+                                    <th scope="col">
+                                        <h3>Tekst: </h3>
+                                    </th>
+
+                                </tr>
+                                </thead>
+
+                                <tbody>
+                                <tr>
+                                    <td>{{ message.subject }}</td>
+                                    <td>{{ message.sent_at|date:_("DATETIME_FORMAT")}}</td>
+                                    <td>{{ message.body|linebreaksbr }}</td>
+
+                                </tr>
+                                <tr>
+
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <div class="col-2 text-center">
+                            <img alt="example image" src="{{ message.sender.profile_image.url }}"
+                                 class="img-fluid rounded-circle">
+
+
+                            <p class="text-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                     class="bi bi-person-square" viewBox="0 0 16 16">
+                                    <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+                                    <path d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm12 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1v-1c0-1-1-4-6-4s-6 3-6 4v1a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12z"/>
+                                </svg>
+                                {{ message.sender.username }}
+                            </p>
+
+                            <p class="text-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                     class="bi bi-phone-vibrate" viewBox="0 0 16 16">
+                                    <path d="M10 3a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h4zM6 2a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h4a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H6z"/>
+                                    <path d="M8 12a1 1 0 1 0 0-2 1 1 0 0 0 0 2zM1.599 4.058a.5.5 0 0 1 .208.676A6.967 6.967 0 0 0 1 8c0 1.18.292 2.292.807 3.266a.5.5 0 0 1-.884.468A7.968 7.968 0 0 1 0 8c0-1.347.334-2.619.923-3.734a.5.5 0 0 1 .676-.208zm12.802 0a.5.5 0 0 1 .676.208A7.967 7.967 0 0 1 16 8a7.967 7.967 0 0 1-.923 3.734.5.5 0 0 1-.884-.468A6.967 6.967 0 0 0 15 8c0-1.18-.292-2.292-.807-3.266a.5.5 0 0 1 .208-.676zM3.057 5.534a.5.5 0 0 1 .284.648A4.986 4.986 0 0 0 3 8c0 .642.12 1.255.34 1.818a.5.5 0 1 1-.93.364A5.986 5.986 0 0 1 2 8c0-.769.145-1.505.41-2.182a.5.5 0 0 1 .647-.284zm9.886 0a.5.5 0 0 1 .648.284C13.855 6.495 14 7.231 14 8c0 .769-.145 1.505-.41 2.182a.5.5 0 0 1-.93-.364C12.88 9.255 13 8.642 13 8c0-.642-.12-1.255-.34-1.818a.5.5 0 0 1 .283-.648z"/>
+                                </svg>
+                                {{ message.sender.phone_number }}
+                            </p>
+
+                            <p class="text-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                     class="bi bi-envelope" viewBox="0 0 16 16">
+                                    <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1H2zm13 2.383-4.758 2.855L15 11.114v-5.73zm-.034 6.878L9.271 8.82 8 9.583 6.728 8.82l-5.694 3.44A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.739zM1 11.114l4.758-2.876L1 5.383v5.73z"/>
+                                </svg>
+                                {{ message.sender.email }}
+                            </p>
+                            {% ifequal message.recipient.pk user.pk %}
+                            <a href="{% url 'messages_reply' message.id %}">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                     class="bi bi-reply-fill" viewBox="0 0 16 16">
+                                    <path d="M5.921 11.9 1.353 8.62a.719.719 0 0 1 0-1.238L5.921 4.1A.716.716 0 0 1 7 4.719V6c1.5 0 6 0 7 8-2.5-4.5-7-4-7-4v1.281c0 .56-.606.898-1.079.62z"/>
+                                </svg>
+                                Odgovori
+                            </a></br>
+                            {% endifequal %}
+                            <a href="{% url 'messages_delete' message.id %}" class="replay">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                     class="bi bi-trash" viewBox="0 0 16 16">
+                                    <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>
+                                    <path fill-rule="evenodd"
+                                          d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>
+                                </svg>
+                                Obrisi
+                            </a>
+                        </div>
+
+
+                        <!--                    <dl class="message-headers">-->
+                        <!--                        <dt>{% trans "Subject" %}</dt>-->
+                        <!--                        <dd><strong>{{ message.subject }}</strong></dd>-->
+                        <!--                        <dt>{% trans "Sender" %}</dt>-->
+                        <!--                        <dd>{{ message.sender }}</dd>-->
+                        <!--                        <dd>{{ message.sender.username }}</dd>-->
+                        <!--                        <dt>{% trans "Date" %}</dt>-->
+                        <!--                        <dd>{{ message.sent_at|date:_("DATETIME_FORMAT")}}</dd>-->
+                        <!--                        <dt>{% trans "Recipient" %}</dt>-->
+                        <!--                        <dd>{{ message.recipient }}</dd>-->
+                        <!--                    </dl>-->
+                        <!--                    {{ message.body|linebreaksbr }}<br/>!!!<br/>-->
+
+                        <!--                    {% ifequal message.recipient.pk user.pk %}-->
+                        <!--                    <a href="{% url 'messages_reply' message.id %}">{% trans "Reply" %}</a>-->
+                        <!--                    {% endifequal %}-->
+                        <!--                    <a href="{% url 'messages_delete' message.id %}">{% trans "Delete" %}</a>-->
+                        <!--                    <button type="button" class="btn btn-sm btn-outline-secondary" onclick="goBack()">Nazad</button>-->
+                        <script>
+                        function goBack() {
+                            window.history.back();
+                             }
+
+
+
+
+                        </script>
+                    </div>
+                </div>
+                <!--                {% comment %}Example reply_form integration-->
+                <!--                {% if reply_form %}-->
+                <!--                <h1>{% trans "Compose reply"%}</h1>-->
+                <!--                <form action="{% url 'messages_reply' message.id %}" method="post">-->
+                <!--                    {% csrf_token %}-->
+                <!--                    <table>-->
+                <!--                        {{ reply_form.as_table }}-->
+                <!--                    </table>-->
+                <!--                    <input type="submit" value="{% trans " Send" %} &raquo;"/>-->
+                <!--                </form>-->
+
+                <!--                {% endif %}-->
+                <!--                {% endcomment %}-->
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}

@@ -1,0 +1,105 @@
+{% extends "django_messages/nav_footer2.html" %}
+{% load i18n %}
+
+{% block content %}
+<section class="bg-color wrapper-tabs">
+   <nav class="bg-color"></nav>
+   <ul class="tabs">
+      <li class="active">Inbox</li>
+      <li>Trash</li>
+   </ul>
+   <ul class="tab__content">
+      <li class="active">
+         <div class="content__wrapper">
+			{% if message_list %}
+	  <ul class="message-list">
+	{% for message in message_list %}
+        <li class="unread">
+          <div class="col col-1">
+		   <div class="InboxInfo">
+            <p class="title">Od: {{ message.sender.username }} {{ message.sender.last_name }}</p>
+          </div>
+          </div>
+          <div class="col col-2">
+		    <div class="InboxInfo">
+            {% if message.new %}<strong>{% endif %}
+            {% if message.replied %}<em>{% endif %}
+            <a href="{{ message.get_absolute_url }}"><div class="subject">{{ message.subject }}</span></div></a>    
+		    </div>
+			<div class="InboxInfo">
+			{% if message.replied %}</em>{% endif %}
+            {% if message.new %}</strong>{% endif %}
+            <div class="date">&nbsp;&nbsp;&nbsp;&nbsp;{{ message.sent_at|date:_("DATETIME_FORMAT") }}&nbsp;&nbsp;&nbsp;&nbsp;<a href="{% url 'messages_delete' message.id %}">{% trans "Obrisi" %}</a></div>
+
+          </div>
+          </div>
+        </li>
+	 {% endfor %}
+     </ul>
+ </div>
+{% else %}
+<p>{% trans "Nema poruka" %}</p>
+</div>
+
+
+
+
+
+
+{% endif %}
+    <button type="button" class="btn btn-sm btn-outline-secondary"  onclick="goBack()">Nazad</button>
+    <script>
+       function goBack() {
+         window.history.back();
+       }
+    </script>
+         </div>
+         </div>
+         </div>
+      </li>
+      <li>
+         <div class="content__wrapper">
+{% if message_list_deleted %}
+
+	  <ul class="message-list">
+	{% for message in message_list_deleted %}
+        <li class="unread">
+          <div class="col col-1">
+		   <div class="InboxInfo">
+            <p class="title">Od: {{ message.sender.username }} {{ message.sender.last_name }}</p>
+          </div>
+          </div>
+          <div class="col col-2">
+		    <div class="InboxInfo">
+            {% if message.new %}<strong>{% endif %}
+            {% if message.replied %}<em>{% endif %}
+            <a href="{{ message.get_absolute_url }}"><div class="subject">{{ message.subject }}</span></div></a>    
+		    </div>
+			<div class="InboxInfo">
+			{% if message.replied %}</em>{% endif %}
+            {% if message.new %}</strong>{% endif %}
+            <div class="date">&nbsp;&nbsp;&nbsp;&nbsp;{{ message.sent_at|date:_("DATETIME_FORMAT") }}&nbsp;&nbsp;&nbsp;&nbsp;<a href="{% url 'messages_undelete' message.id %}">{% trans "vrati u inbox" %}</a></div>
+
+          </div>
+          </div>
+        </li>
+	 {% endfor %}
+     </ul>
+{% else %}
+<p>{% trans "Nema obrisanih poruka" %}</p>
+{% endif %}
+<br />
+         </div>
+      </li>
+      <li>
+         <div class="content__wrapper">
+         </div>
+      </li>
+   </ul>
+   
+</section>
+{% endblock %}
+
+
+
+

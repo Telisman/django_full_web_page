@@ -1,0 +1,570 @@
+@import url('https://fonts.googleapis.com/css?family=Muli&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Quicksand&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed&display=swap');
+
+
+.container-fluid{
+padding:0px;
+}
+
+#homeImage {
+
+ background-image: url("slika10.jpg");
+ background-size: 100%;
+ font-family: 'Muli', sans-serif;
+ background-repeat: no-repeat;
+ margin:0px;
+
+
+}
+#textHome {
+       margin-top: 10%;
+    color: #ff5821;
+
+    margin-bottom: 10%;
+}
+
+#introText2{
+    font: Muli, serif;
+    font-size:20px;
+    line-height: 1.2;
+    color:white;
+ }
+#introText2 p {
+    color:#040b14!Important;
+}
+.button {
+  background-color: #ff5821;
+  color: white!Important;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  padding-right:20px;
+  width: 152px;
+  border-radius:0.20em;
+}
+
+.button:hover {
+background-color:white;
+color:#040b14:!Important;
+}
+
+#about {
+    padding-top:100px;
+    padding-bottom:100px;
+    background-color: #dee2e6;
+    margin:0;
+}
+#aboutBox1 {
+    border: 10px solid #ff5821;
+    background-color: #ff5821;
+    color: #040b14;
+    border-radius: 10px;
+margin-bottom: 10px;
+font-family: 'Barlow Condensed', sans-serif;
+font-size:18px;
+}
+
+
+#step1 {
+    margin:0;
+    background-color:#dee2e65c;
+
+}
+
+#step1text h1{
+padding-top: 10%;
+color: #ff5821;
+font-size: 35px;
+text-align: center;
+font-family: 'Anton', sans-serif;
+ letter-spacing: 3px;
+}
+
+
+#step1text p {
+   font-size:20px;
+   color: #ff5821;
+   font-family: 'Barlow Condensed', sans-serif;
+}
+
+#step1image {
+padding-right: 0px;
+padding-left: 0px;
+}
+
+#step2{
+margin:0;
+ background-color:#dee2e6;
+}
+#step2text {
+padding-top:5%;
+padding-right: 4%;
+color:#ff5821;
+}
+#step2image{
+    padding: 0px;
+}
+
+#step2text h1{
+padding-top: 5%;
+color:#ff5821;
+font-size: 35px;
+text-align: center;
+font-family: 'Anton', sans-serif;
+ letter-spacing: 3px;
+}
+#step2text p {
+   font-size:20px;
+color:#ff5821;
+   font-family: 'Barlow Condensed', sans-serif;
+}
+
+#step3 {
+    margin:0;
+    background-color:#dee2e65c;
+}
+
+
+#step3text {
+padding-top:5%;
+}
+
+#step3text h1{
+padding-top: 5%;
+color:#ff5821;
+font-size: 35px;
+text-align: center;
+font-family: 'Anton', sans-serif;
+ letter-spacing: 3px;
+}
+#step3text p {
+padding-right: 4%;
+color:#ff5821;
+}
+
+
+
+
+#add_post button {
+     margin-bottom: 10px;
+
+     background-color: #ff5821;
+     width:200px;
+     height:100px;
+     font-size:16px;
+     font-family: 'Anton', sans-serif;
+
+}
+#add_post button:hover {
+ background-color:black;
+ opacity:0.4;
+}
+.tab-content {
+padding: 0 0 0 0;
+border:None;
+}
+
+#postovi tr > td {
+	max-width:200px;
+	overflow: hidden;
+}
+
+
+
+#step3image {
+padding:0px;
+}
+
+
+#profile {
+  transition: all ease-in-out 0.5s;
+  transition: all 0.5s;
+  padding: 0;
+  background: #040b14;
+  border-top: 1px solid #ff5821;
+  border-bottom:1px solid #ff5821;
+}
+
+#profile .profile img {
+  margin: 15px auto;
+  display: block;
+  width: 120px;
+  border: 8px solid #2c2f3f;
+}
+
+#profile .profile h1 {
+  font-size: 24px;
+  margin: 0;
+  padding: 0;
+  font-weight: 600;
+  -moz-text-align-last: center;
+  text-align-last: center;
+  font-family: "Poppins", sans-serif;
+}
+
+#profile .profile h1 a, #header .profile h1 a:hover {
+  color: #ff5821;
+  font-size:30px;
+  text-decoration: none;
+}
+
+
+.nav-menu {
+  padding: 30px 0 0 0;
+}
+
+.nav-menu * {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  color: #ff5821;
+  font-size: 16px;
+  font-family: 'Anton', sans-serif;
+  letter-spacing: 1.5px;
+
+
+}
+
+.nav-menu > ul > li {
+  position: relative;
+  white-space: nowrap;
+}
+
+.nav-menu a {
+  display: flex;
+  align-items: center;
+  color: #a8a9b4;
+  padding: 12px 15px;
+  margin-bottom: 8px;
+  transition: 0.3s;
+  font-size: 15px;
+}
+
+.nav-menu a i {
+  font-size: 24px;
+  padding-right: 8px;
+  color: #6f7180;
+}
+
+.about .content h3 {
+  font-weight: 700;
+  font-size: 26px;
+  color: #173b6c;
+}
+
+.about .content ul {
+  list-style: none;
+  padding: 0;
+}
+
+.about .content ul li {
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+}
+
+.about .content ul strong {
+  margin-right: 10px;
+  color:#ff5821;
+}
+b, strong {
+    font-weight: bolder;
+    color: #ff5821;
+}
+.about .content ul i {
+  font-size: 16px;
+  margin-right: 5px;
+  color: #149ddd;
+  line-height: 0;
+}
+
+.about .content p:last-child {
+  margin-bottom: 0;
+}
+.row-class {
+padding-top:10%;
+}
+.row .info ul li {
+padding-bottom:30px;
+}
+.section-title {
+padding-top: 50px;
+}
+.section-title h2 {
+font-family: 'Anton', sans-serif;
+}
+.text-light {
+height:30px;
+}
+.row .info {
+    padding-bottom: 3%;
+}
+.add-post {
+    padding-top: 2%;
+    border-top: 1.5px solid #ff5821;
+    padding-left: 25%;
+    padding-right: 25%;
+    padding-bottom:10%;
+}
+.menu-bar a {
+    color: #ff5821;
+    font-family: 'Anton', sans-serif;
+    letter-spacing: 2px;
+    position: relative;
+   margin-left:10px;
+       text-decoration: none;
+
+}
+
+
+.menu-bar .nav-item a::before{
+  content: '';
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 0;
+  height: 2px;
+  background-color: white;
+  transition: width 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+
+}
+.menu {
+height:100%;
+}
+
+@media (hover: hover) and (pointer: fine) {
+.menu-bar .nav-item a:hover::before{
+    left: 0;
+    right: auto;
+    width: 100%;
+    color:white;
+  }
+}
+
+.navbar-dark .navbar-nav .nav-link {
+color:#ff5821;
+}
+
+#aboutText {
+color:#ff5821;
+}
+.a {
+    margin-right: 25%;
+}
+
+
+.add_post_home ul {
+    padding: 0;
+    list-style-type: none;
+}
+
+.add_post_home ul li {
+    box-sizing: border-box;
+    width: 15em;
+    height: 3em;
+    font-size: 20px;
+    border-radius: 0.5em;
+    margin: 0.5em;
+    box-shadow: 0 0 1em rgba(0,0,0,0.2);
+    color: white!Important;
+    font-family: sans-serif;
+    text-transform: capitalize;
+    line-height: 3em;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.add_post_home ul li:nth-child(odd) {
+    background: linear-gradient(to right, orange, tomato);
+    text-align: left;
+    padding-left: 10%;
+    transform: perspective(500px) rotateY(45deg);
+}
+
+.add_post_home ul li:nth-child(even) {
+    background: linear-gradient(to left, orange, tomato);
+    text-align: right;
+    padding-right: 10%;
+    transform: perspective(500px) rotateY(-45deg);
+}
+
+.add_post_home ul li:nth-child(odd):hover {
+    transform: perspective(200px) rotateY(45deg);
+    padding-left: 5%;
+}
+
+.add_post_home ul li:nth-child(even):hover {
+    transform: perspective(200px) rotateY(-45deg);
+    padding-right: 5%;
+}
+
+.add_text {
+margin-bottom:5%;
+}
+
+.add_post_home ul li a {
+color:#040b14!Important;
+}
+
+
+.style_prevu_kit
+{
+    display:inline-block;
+    border:0;
+    width:196px;
+    height:210px;
+    position: relative;
+    transition: all 200ms ease-in;
+    transform: scale(1);
+    margin-right: 5px;
+    margin-bottom: 5px;
+    border:5px solid white;
+    border-radius:15px;
+        padding-top: 7%;
+
+}
+.style_prevu_kit:hover
+{
+    box-shadow: 0px 0px 150px #040b14;
+    z-index: 2;
+    transform: scale(1.5);
+    border:5px solid #040b14;
+}
+
+
+
+
+.post_add_a {
+padding-top:10px;
+margin-top:10px;
+position: relative;
+color:white!Important;
+ text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+
+}
+.post_add_a:hover {
+   color:white!Important;
+
+
+}
+
+.img_add1{
+    background-image:url("stolarski_radovi.jpg");
+
+
+}
+.img_add2{
+    background-image:url("vodoinstalater.jpg");
+}
+.img_add3{
+    background-image:url("ciscenje.jpg");
+}
+.img_add4{
+    background-image:url("montazni_radovi.jpg");
+}
+.img_add5{
+    background-image:url("moleraj.jpg");
+}
+.img_add6{
+    background-image:url("bastenski_radovi.jpg");
+}
+.img_add7{
+    background-image:url("selidbe.jpg");
+}
+
+.img_add8{
+    background-image:url("ljubimci.jpg");
+}
+.img_add9{
+    background-image:url("it.jpg");
+}
+.img_add10{
+    background-image:url("automehanicari.jpg");
+}
+
+.post_add_a ul{
+list-style-type:None;
+text-align: left;
+}
+
+.post_add_a ul li {
+font-size:13px;
+letter-spacing:3px;
+ font-family: 'Muli', sans-serif;
+}
+
+.post_add_a ul li:hover {
+font-size:13px;
+letter-spacing:3px;
+ font-family: 'Muli', sans-serif;
+ background-color:black;
+}
+
+.category{
+
+border-top: 2px solid black;
+padding-top:2%;
+}
+
+.category h1 {
+color:#ff5821;
+font-family: 'Anton', sans-serif;
+letter-spacing:1.5px;
+
+}
+.style_prevu_kit_cat ul li {
+padding-bottom:0px;
+}
+.style_prevu_kit_cat {
+   display:inline-block;
+    border:0;
+    width:196px;
+    height:210px;
+    position: relative;
+    transition: all 200ms ease-in;
+    transform: scale(1);
+    margin-right: 5px;
+    margin-bottom: 5px;
+    border:5px solid white;
+    border-radius:15px;
+    padding-top:3%;
+}
+.category_view_a  {
+color:white!Important;
+}
+.category_view_a:hover  {
+color:white!Important;
+}
+.style_prevu_kit_cat:hover{
+    box-shadow: 0px 0px 150px #040b14;
+    z-index: 2;
+    transform: scale(1.5);
+    border:5px solid #040b14;
+}
+.category_view_a ul{
+list-style-type:None;
+text-align: left;
+}
+
+.category_view_a ul li {
+font-size:13px;
+letter-spacing:3px;
+ font-family: 'Muli', sans-serif;
+ padding-bottom:0px!Important;
+  color:white!Important;
+   text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+
+.category_view_a ul li:hover {
+font-size:13px;
+letter-spacing:3px;
+ font-family: 'Muli', sans-serif;
+ background-color:black;
+
+}

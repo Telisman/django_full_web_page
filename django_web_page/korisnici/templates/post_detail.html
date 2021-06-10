@@ -1,0 +1,222 @@
+{% extends "nav_footer.html" %}
+{% load staticfiles %}
+{% block content %}
+<link rel="stylesheet" type="text/css" href="{% static 'post_user/post_detail.css' %}">
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" />
+
+<!--User menu-->
+{% if user.is_authenticated %}
+
+
+    {% if user.user_type  == user.MAJSTOR %}
+        <div class="container-fluid" >
+            <div class="row" style="margin-left: 0px; margin-right: 0px;">
+                <div class="col-2" id="profile">
+                    <div class="d-flex flex-column">
+                        <div class="profile">
+                            {% if user.profile_image %}
+                            <img alt="example image" src="{{ user.profile_image.url }}" class="img-fluid rounded-circle">
+                            {% endif %}
+                            <h1 class="text-light"><a href="">{{ user.username }}</a></h1>
+                        </div>
+                        <nav id="navbar" class="nav-menu navbar menu">
+                            <ul class="menu-bar">
+                                <li class="nav-item"><a href="/" ><span>Moj profil</span></a></li>
+                                <li class="nav-item"><a href="https://majstor.cloud-petkovic.com/messages/inbox/" > <span>Poruke </span></a></li>
+                                <li class="nav-item"><a href="/PostPage/" > <span>Pogledaj te sve oglase: </span></a></li>
+                                <li class="nav-item"><a href="/members/edit_profile/" > <span>Izmeni profil </span></a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+
+               <div class="col-10 post_detail">
+                  <div class="container-fluid">
+                     <div class="col-12 text-center title">
+                        <h1> {{ post.task_title }}</h1>
+                     </div>
+                     <div class="row">
+                        <div class="col-10">
+                           <table class="table">
+                              <thead>
+                              <tr>
+                                 <th scope="col" style=" width: 500px;"><h6 class="text-center">
+                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-card-text" viewBox="0 0 16 16">
+                                         <path d="M14.5 3a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-13a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h13zm-13-1A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-13z"/>
+                                         <path d="M3 5.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zM3 8a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9A.5.5 0 0 1 3 8zm0 2.5a.5.5 0 0 1 .5-.5h6a.5.5 0 0 1 0 1h-6a.5.5 0 0 1-.5-.5z"/>
+                                     </svg> Opis posla:</h6>
+                                 </th>
+
+
+                                  <th scope="col"><h6 class="text-center">
+                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-list-ul" viewBox="0 0 16 16">
+                                         <path fill-rule="evenodd" d="M5 11.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zm-3 1a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm0 4a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm0 4a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"/>
+                                     </svg> Kategorija:</h6>
+                                 </th>
+
+                                  <th scope="col"><h6 class="text-center">
+                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-tools" viewBox="0 0 16 16">
+                                         <path d="M1 0 0 1l2.2 3.081a1 1 0 0 0 .815.419h.07a1 1 0 0 1 .708.293l2.675 2.675-2.617 2.654A3.003 3.003 0 0 0 0 13a3 3 0 1 0 5.878-.851l2.654-2.617.968.968-.305.914a1 1 0 0 0 .242 1.023l3.356 3.356a1 1 0 0 0 1.414 0l1.586-1.586a1 1 0 0 0 0-1.414l-3.356-3.356a1 1 0 0 0-1.023-.242L10.5 9.5l-.96-.96 2.68-2.643A3.005 3.005 0 0 0 16 3c0-.269-.035-.53-.102-.777l-2.14 2.141L12 4l-.364-1.757L13.777.102a3 3 0 0 0-3.675 3.68L7.462 6.46 4.793 3.793a1 1 0 0 1-.293-.707v-.071a1 1 0 0 0-.419-.814L1 0zm9.646 10.646a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708zM3 11l.471.242.529.026.287.445.445.287.026.529L5 13l-.242.471-.026.529-.445.287-.287.445-.529.026L3 15l-.471-.242L2 14.732l-.287-.445L1.268 14l-.026-.529L1 13l.242-.471.026-.529.445-.287.287-.445.529-.026L3 11z"/>
+                                     </svg> Alat:</h6>
+                                 </th>
+
+                                  <th scope="col"><h6 class="text-center">
+                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-currency-exchange" viewBox="0 0 16 16">
+                                         <path d="M0 5a5.002 5.002 0 0 0 4.027 4.905 6.46 6.46 0 0 1 .544-2.073C3.695 7.536 3.132 6.864 3 5.91h-.5v-.426h.466V5.05c0-.046 0-.093.004-.135H2.5v-.427h.511C3.236 3.24 4.213 2.5 5.681 2.5c.316 0 .59.031.819.085v.733a3.46 3.46 0 0 0-.815-.082c-.919 0-1.538.466-1.734 1.252h1.917v.427h-1.98c-.003.046-.003.097-.003.147v.422h1.983v.427H3.93c.118.602.468 1.03 1.005 1.229a6.5 6.5 0 0 1 4.97-3.113A5.002 5.002 0 0 0 0 5zm16 5.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0zm-7.75 1.322c.069.835.746 1.485 1.964 1.562V14h.54v-.62c1.259-.086 1.996-.74 1.996-1.69 0-.865-.563-1.31-1.57-1.54l-.426-.1V8.374c.54.06.884.347.966.745h.948c-.07-.804-.779-1.433-1.914-1.502V7h-.54v.629c-1.076.103-1.808.732-1.808 1.622 0 .787.544 1.288 1.45 1.493l.358.085v1.78c-.554-.08-.92-.376-1.003-.787H8.25zm1.96-1.895c-.532-.12-.82-.364-.82-.732 0-.41.311-.719.824-.809v1.54h-.005zm.622 1.044c.645.145.943.38.943.796 0 .474-.37.8-1.02.86v-1.674l.077.018z"/>
+                                     </svg> Budzet: </h6>
+                                 </th>
+                              </tr>
+                              </thead>
+
+                              <tbody>
+                              <tr>
+                                 <td><p class="text-center">{{ post.task_discription|safe }}</p></td>
+                                 <td><p class="text-center">{{ post.task_category }}</p></td>
+                                 <td><p class="text-center">{{ post.recommended_tools}}</p></td>
+                                 <td><p class="text-center">{{ post.budget }} RSD</td>
+
+                              </tr>
+                              <tr>
+
+                              </tbody>
+                           </table>
+                           </div>
+
+
+                        <div class="col-2 text-center">
+
+                            <img alt="example image" src="{{ post.postUser.profile_image.url }}" class="img-fluid">
+
+                            <p class="text-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-square" viewBox="0 0 16 16">
+                                    <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+                                    <path d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm12 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1v-1c0-1-1-4-6-4s-6 3-6 4v1a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12z"/>
+                                </svg> {{ post.postUser.username }}
+                           </p>
+
+                            <p class="text-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-phone-vibrate" viewBox="0 0 16 16">
+                                    <path d="M10 3a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h4zM6 2a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h4a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H6z"/>
+                                    <path d="M8 12a1 1 0 1 0 0-2 1 1 0 0 0 0 2zM1.599 4.058a.5.5 0 0 1 .208.676A6.967 6.967 0 0 0 1 8c0 1.18.292 2.292.807 3.266a.5.5 0 0 1-.884.468A7.968 7.968 0 0 1 0 8c0-1.347.334-2.619.923-3.734a.5.5 0 0 1 .676-.208zm12.802 0a.5.5 0 0 1 .676.208A7.967 7.967 0 0 1 16 8a7.967 7.967 0 0 1-.923 3.734.5.5 0 0 1-.884-.468A6.967 6.967 0 0 0 15 8c0-1.18-.292-2.292-.807-3.266a.5.5 0 0 1 .208-.676zM3.057 5.534a.5.5 0 0 1 .284.648A4.986 4.986 0 0 0 3 8c0 .642.12 1.255.34 1.818a.5.5 0 1 1-.93.364A5.986 5.986 0 0 1 2 8c0-.769.145-1.505.41-2.182a.5.5 0 0 1 .647-.284zm9.886 0a.5.5 0 0 1 .648.284C13.855 6.495 14 7.231 14 8c0 .769-.145 1.505-.41 2.182a.5.5 0 0 1-.93-.364C12.88 9.255 13 8.642 13 8c0-.642-.12-1.255-.34-1.818a.5.5 0 0 1 .283-.648z"/>
+                                </svg> {{ post.postUser.phone_number }}
+                            </p>
+
+                           <p class="text-center">
+                               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-envelope" viewBox="0 0 16 16">
+                                   <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1H2zm13 2.383-4.758 2.855L15 11.114v-5.73zm-.034 6.878L9.271 8.82 8 9.583 6.728 8.82l-5.694 3.44A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.739zM1 11.114l4.758-2.876L1 5.383v5.73z"/>
+                               </svg> {{ post.postUser.email }}
+                           </p>
+
+                        </div>
+
+
+                        <div class="col-12 text-center but-back">
+
+                                <button type="button" class="btn btn-sm btn-outline-secondary sent-message" >
+                                    <a href="{% url 'messages_compose_to' post.postUser.username %}">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-envelope-fill" viewBox="0 0 16 16">
+                                            <path d="M.05 3.555A2 2 0 0 1 2 2h12a2 2 0 0 1 1.95 1.555L8 8.414.05 3.555zM0 4.697v7.104l5.803-3.558L0 4.697zM6.761 8.83l-6.57 4.027A2 2 0 0 0 2 14h12a2 2 0 0 0 1.808-1.144l-6.57-4.027L8 9.586l-1.239-.757zm3.436-.586L16 11.801V4.697l-5.803 3.546z"/>
+                                        </svg> Posalju ponudu
+                                    </a>
+                                </button>
+
+                        </div>
+                      </div>
+                   </div>
+                </div>
+
+               {% endif %}
+  
+    {% endif %}
+
+<!--                  &lt;!&ndash;    Authentication as user KORISNIK    &ndash;&gt;-->
+<!--                  {% if user.is_authenticated %}-->
+<!--                  {% if user.id == post.postUser.id %}-->
+<!--                  <button type="button" class="btn btn-sm btn-outline-secondary"><a href="{% url 'update' post.pk %}">Izmeni</a></button>-->
+<!--                  <button type="button" class="btn btn-sm btn-outline-secondary delete"><a href="{% url 'delete' post.pk %}">Obrisi</a></button>-->
+<!--                  {% endif %}-->
+<!--                  {% endif %}-->
+<!--                  <button type="button" class="btn btn-sm btn-outline-secondary"  onclick="goBack()">Nazad</button>-->
+<!--                  <script>-->
+<!--                     function goBack() {-->
+<!--                       window.history.back();-->
+<!--                     }-->
+<!--                  </script>-->
+<!--               </div>-->
+<!--            </div>-->
+<!--         </div>-->
+<!--         </div>-->
+<!--         </div>-->
+<!--      </li>-->
+<!--      <li>-->
+<!--         <div class="content__wrapper">-->
+<!--            &lt;!&ndash; Authentication as user MAJSTORI &ndash;&gt;-->
+<!--            {% if user.is_authenticated %}-->
+<!--            {% if user.user_type  == user.KORISNIK %}-->
+<!--			<div class="container">-->
+<!--			   {% if not post.comments.all %}-->
+<!--               Nema ponuda  -->
+<!--               {% else %}-->
+<!--               {% for comment in post.comments.all %}-->
+<!--               <div class="offers">-->
+<!--                  <strong>-->
+<!--                  <a href="{% url 'majstori_profile' comment.Mid %}">{{ comment.user }} - </a>-->
+<!--                  {{ comment.name }} - -->
+<!--                  {{ comment.date_added }} - -->
+<!--                  {{ comment.Mid }} - -->
+<!--                  </strong>-->
+<!--                  {{ comment.body }}-->
+<!--				  <div class="odgovori" style="display: flex;"><a href="{% url 'messages_compose_to' comment.user %}" >Odgovori</a></div>-->
+<!--               </div>-->
+<!--               {% endfor %}-->
+<!--               {% endif %}-->
+<!--			</div>-->
+<!--			{% endif %}-->
+<!--            {% if user.user_type  == user.MAJSTOR %}-->
+<!--            &lt;!&ndash; Like button section for users MAJSTORI &ndash;&gt;-->
+<!--            <div class="container">-->
+<!--               {% if not post.comments.all %}-->
+<!--               Nema ponuda  -->
+<!--               {% else %}-->
+<!--               {% for comment in post.comments.all %}-->
+<!--			     {%if comment.user == user.username %}-->
+<!--               <div class="offers">-->
+<!--                  <strong>-->
+<!--                  {{ comment.user }} - -->
+<!--                  {{ comment.name }} - -->
+<!--                  {{ comment.date_added }} - -->
+<!--                  </strong>-->
+<!--                  {{ comment.body }}-->
+<!--				  {% endif %}-->
+<!--               </div>-->
+<!--               {% endfor %}-->
+<!--               {% endif %}-->
+<!--               </br>-->
+<!--               </br>-->
+<!--                  <button class="btn"><a href="{% url 'add_comment' post.pk %}">Posalji ponudu</a></button>-->
+<!--               <form style="display: inline;" action="{% url 'like_post' post.pk %} " method="post">-->
+<!--                  {% csrf_token%}-->
+<!--                  <button type="submit", name="post_id", value="{{ post.id }}", class="btn btn-primary">Like -{{ total_likes }}</button>-->
+<!--               </form>-->
+<!--            </div>-->
+<!--            <a href="{% url 'messages_compose_to' post.postUser.username %}" >Odgovori</a>-->
+<!--            {% endif %}-->
+<!--            {% endif %}-->
+<!--         </div>-->
+<!--      </li>-->
+<!--      <li>-->
+<!--         <div class="content__wrapper">-->
+<!--            <div class="mapouter">-->
+<!--               <div class="gmap_canvas">-->
+<!--                  <iframe   width="900" height="500" id="gmap_canvas" src="https://maps.google.com/maps?q=berlin&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe><br>-->
+<!--                  <style>.mapouter{position:relative;text-align:right;height:500px;}</style>-->
+<!--                  <a href="https://www.embedgooglemap.net">embedgooglemap.net</a>-->
+<!--                  <style>.gmap_canvas {overflow:hidden;background:none!important;height:500px;}</style>-->
+<!--               </div>-->
+<!--            </div>-->
+<!--         </div>-->
+<!--      </li>-->
+<!--   </ul>-->
+<!--   -->
+<!--</section>-->
+{% endblock %}
